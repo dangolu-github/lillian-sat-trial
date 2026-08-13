@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Trial Class | Quantitative Evidence Learning Guide</title>
+  <style>
+    :root {
+      --navy:#102a43;
+      --blue:#1769aa;
+      --sky:#eaf5ff;
+      --mint:#eaf8f3;
+      --amber:#fff5db;
+      --red:#a73a3a;
+      --ink:#17212b;
+      --muted:#52606d;
+      --line:#cbd5df;
+      --paper:#ffffff;
+      --bg:#f2f6fa;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--bg);
+      font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+      line-height:1.58;
+    }
+    main { max-width:1040px; margin:0 auto; padding:28px 22px 70px; }
+    .hero {
+      position:relative;
+      overflow:hidden;
+      color:#fff;
+      background:linear-gradient(135deg,#0b2540 0%,#125f9f 72%,#1f88c7 100%);
+      border-radius:24px;
+      padding:34px 36px 30px;
+      box-shadow:0 18px 44px rgba(16,42,67,.22);
+    }
+    .hero:after {
+      content:"";
+      position:absolute;
+      right:-80px;
+      top:-95px;
+      width:260px;
+      height:260px;
+      border:36px solid rgba(255,255,255,.10);
+      border-radius:50%;
+    }
+    .eyebrow { margin:0 0 7px; font-size:.76rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { position:relative; margin:0; font-size:clamp(2rem,5.5vw,3.55rem); line-height:1.04; letter-spacing:-.035em; }
+    .subtitle { position:relative; margin:12px 0 0; font-size:1.1rem; max-width:760px; color:#d9efff; }
+    .hero-grid { position:relative; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:24px; }
+    .hero-chip { padding:10px 12px; border:1px solid rgba(255,255,255,.28); background:rgba(255,255,255,.10); border-radius:12px; font-size:.92rem; }
+    .hero-chip strong { display:block; color:#fff; }
+    .toolbar { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 20px; align-items:center; }
+    .toolbar a,.toolbar button {
+      border:1px solid #b9c8d6;
+      background:#fff;
+      color:var(--navy);
+      border-radius:999px;
+      padding:8px 12px;
+      font:700 .82rem Arial,"PingFang SC",sans-serif;
+      text-decoration:none;
+      cursor:pointer;
+    }
+    .toolbar a:hover,.toolbar button:hover { border-color:var(--blue); color:var(--blue); }
+    section {
+      background:var(--paper);
+      border:1px solid #d8e1e9;
+      border-radius:20px;
+      padding:27px 29px;
+      margin:18px 0;
+      box-shadow:0 8px 22px rgba(16,42,67,.06);
+    }
+    h2 { margin:0 0 17px; color:var(--navy); font-size:1.55rem; line-height:1.2; }
+    h2 .num { display:inline-grid; place-items:center; width:32px; height:32px; margin-right:8px; color:#fff; background:var(--blue); border-radius:10px; font-size:1rem; vertical-align:3px; }
+    h3 { margin:22px 0 9px; color:#164e78; font-size:1.12rem; }
+    p { margin:8px 0; }
+    ul,ol { margin:8px 0 8px 1.25rem; padding:0; }
+    li { margin:5px 0; }
+    .lead { font-size:1.07rem; color:#263d50; }
+    .callout { border-left:5px solid var(--blue); background:var(--sky); border-radius:12px; padding:14px 16px; margin:15px 0; }
+    .callout.warn { border-left-color:#e3a008; background:var(--amber); }
+    .callout.success { border-left-color:#25855a; background:var(--mint); }
+    .callout strong { color:var(--navy); }
+    .grid-2,.grid-3,.method-grid { display:grid; gap:13px; }
+    .grid-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .grid-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .card { border:1px solid var(--line); border-radius:14px; padding:15px; background:#fbfdff; }
+    .card h3 { margin:0 0 6px; font-size:1rem; }
+    .label { display:inline-block; padding:3px 8px; border-radius:999px; background:#dceefe; color:#0e4f81; font-size:.73rem; font-weight:800; letter-spacing:.03em; }
+    .route { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:12px 0; }
+    .route .node { flex:1 1 180px; border:1px solid #b7c9d8; border-radius:13px; padding:11px 12px; background:#f8fbfe; }
+    .route .node.active { border:2px solid var(--blue); background:var(--sky); }
+    .route .arrow { color:var(--blue); font-size:1.4rem; font-weight:900; }
+    table { width:100%; border-collapse:collapse; margin:12px 0; font-size:.94rem; }
+    th,td { border:1px solid #bbc8d3; padding:9px 10px; text-align:left; vertical-align:top; }
+    th { background:#eaf2f8; color:var(--navy); }
+    .method { counter-reset:step; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin:13px 0; }
+    .method .step { min-height:126px; border:1px solid #bfd0df; border-radius:13px; padding:12px; background:#fbfdff; }
+    .method .step:before { counter-increment:step; content:counter(step); display:grid; place-items:center; width:27px; height:27px; margin-bottom:8px; border-radius:9px; color:#fff; background:var(--blue); font-weight:800; }
+    .step strong { display:block; color:var(--navy); margin-bottom:3px; }
+    .micro { border:2px solid #6e9fc3; border-radius:16px; padding:18px; background:linear-gradient(180deg,#f8fcff,#fff); }
+    .trace { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:9px; margin:12px 0; }
+    .trace div { padding:10px; border-radius:11px; background:#edf6fc; }
+    .question { border:2px solid #8ea8bd; border-radius:17px; padding:18px; margin:18px 0; background:#fff; }
+    .question-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; }
+    .question-head h3 { margin:0; color:var(--navy); }
+    .difficulty { padding:4px 10px; border-radius:999px; background:#eaf8f3; color:#1f6d4c; font-size:.78rem; font-weight:800; }
+    .stimulus { color:#1f2c38; }
+    .choices { list-style:none; margin:14px 0 0; padding:0; }
+    .choices li { margin:9px 0; }
+    .choices label { display:flex; gap:10px; align-items:flex-start; padding:11px 12px; border:1px solid #c5d1dc; border-radius:12px; background:#fbfdff; cursor:pointer; }
+    .choices label:hover { border-color:#5e91b8; background:#f3f9fd; }
+    .worked-choices { list-style:none; margin:13px 0; padding:0; }
+    .worked-choices li { display:flex; gap:9px; padding:10px 11px; border:1px solid #c5d1dc; border-radius:11px; margin:7px 0; background:#fbfdff; }
+    .worked-choices li.model-correct { border:2px solid #25855a; background:#edf9f3; }
+    .resolution { margin-top:15px; border:2px solid #25855a; border-radius:13px; padding:14px; background:#f0faf5; }
+    input[type=radio] { width:18px; height:18px; margin-top:3px; accent-color:var(--blue); flex:none; }
+    .choice-letter { min-width:22px; color:var(--navy); font-weight:800; }
+    .worksheet { margin-top:14px; border-top:1px dashed #aebdca; padding-top:12px; }
+    .fill { display:inline-block; min-width:140px; height:1.2em; border-bottom:1.5px solid #63788b; vertical-align:-2px; }
+    .answer-space { height:62px; border:1px dashed #8da1b3; border-radius:10px; margin-top:8px; background:repeating-linear-gradient(#fff,#fff 29px,#e5edf3 30px); }
+    .chart-wrap { display:grid; place-items:center; margin:15px auto; padding:12px; border:1px solid #cbd5df; border-radius:14px; background:#fff; overflow:auto; }
+    .chart-wrap svg { width:min(100%,620px); height:auto; }
+    .recall { display:grid; grid-template-columns:1.05fr 1.45fr 1.45fr; gap:12px; }
+    .recall > div { border-radius:14px; padding:15px; color:#fff; background:var(--navy); }
+    .recall > div:nth-child(2) { background:#125f9f; }
+    .recall > div:nth-child(3) { background:#26775a; }
+    .recall strong { display:block; margin-bottom:5px; }
+    .small { font-size:.86rem; color:var(--muted); }
+    .nowrap { white-space:nowrap; }
+    .demo-point { position:relative; }
+    .demo-trigger {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-top:10px;
+      border:1px solid #7ca6c6;
+      border-radius:999px;
+      padding:7px 11px;
+      color:#0f568d;
+      background:#f4faff;
+      font:800 .76rem Arial,"PingFang SC",sans-serif;
+      cursor:pointer;
+    }
+    .demo-trigger:before { content:"↗"; font-size:.9rem; }
+    .demo-trigger:hover,.demo-trigger:focus-visible { border-color:var(--blue); background:#e7f4ff; outline:3px solid rgba(23,105,170,.16); outline-offset:2px; }
+    .demo-dialog { width:min(620px,calc(100vw - 28px)); max-height:82vh; padding:0; border:0; border-radius:18px; color:var(--ink); box-shadow:0 24px 70px rgba(16,42,67,.34); }
+    .demo-dialog::backdrop { background:rgba(8,28,46,.68); backdrop-filter:blur(2px); }
+    .demo-dialog-head { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; padding:20px 22px 15px; color:#fff; background:linear-gradient(135deg,#0b2540,#1769aa); }
+    .demo-dialog-head h2 { margin:0; color:#fff; font-size:1.3rem; }
+    .demo-close { flex:none; border:1px solid rgba(255,255,255,.55); border-radius:999px; padding:6px 10px; color:#fff; background:transparent; font-weight:800; cursor:pointer; }
+    .demo-dialog-body { padding:20px 22px 23px; overflow:auto; }
+    .demo-context { margin:0 0 12px; padding:12px 14px; border-left:5px solid var(--blue); border-radius:10px; background:var(--sky); }
+    .demo-example { margin:0; padding:14px; border:1px solid #c5d3df; border-radius:12px; background:#fff; white-space:pre-line; }
+    .demo-focus { margin:12px 0 0; color:#39576f; }
+    .footer { text-align:center; color:#687b8c; font-size:.82rem; margin-top:22px; }
+    @media (max-width:760px) {
+      main { padding:14px 12px 42px; }
+      .hero { padding:27px 22px 24px; border-radius:18px; }
+      .hero-grid,.grid-2,.grid-3,.recall { grid-template-columns:1fr; }
+      section { padding:22px 18px; border-radius:16px; }
+      .method { grid-template-columns:1fr; }
+      .method .step { min-height:auto; }
+      .trace { grid-template-columns:1fr 1fr; }
+      table { display:block; max-width:100%; overflow-x:auto; font-size:.84rem; }
+      th,td { padding:7px; }
+      .card,.micro,.question,.trace > div { min-width:0; overflow-wrap:anywhere; }
+      .demo-dialog-head,.demo-dialog-body { padding-left:17px; padding-right:17px; }
+    }
+    @media print {
+      @page { size:Letter; margin:.55in; }
+      body { background:#fff; font-size:10pt; }
+      main { max-width:none; padding:0; }
+      .toolbar { display:none; }
+      .hero { box-shadow:none; border-radius:12px; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+      section { box-shadow:none; break-inside:auto; margin:11px 0; padding:19px; }
+      h2,h3,.question-head { break-after:avoid; }
+      .card,.callout,.micro,.question,.method .step,.recall > div { break-inside:avoid; }
+      .demo-trigger,.demo-dialog { display:none; }
+      .method { grid-template-columns:repeat(5,1fr); }
+      .method .step { min-height:0; }
+      .answer-space { height:48px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <p class="eyebrow">SAT Reading &amp; Writing · Trial Class · Learning Handout</p>
+    <h1>Quantitative Evidence</h1>
+    <div class="hero-grid">
+      <div class="hero-chip"><strong>Domain</strong>Information and Ideas</div>
+      <div class="hero-chip"><strong>Question Type</strong>Command of Evidence</div>
+      <div class="hero-chip"><strong>Subtype</strong>Quantitative Evidence</div>
+    </div>
+  </header>
+
+  <nav class="toolbar" aria-label="Handout navigation">
+    <a href="#foundation">Knowledge</a>
+    <a href="#system">Type System</a>
+    <a href="#methods">Methods</a>
+    <a href="#model">Worked Model</a>
+    <a href="#applications">Applications</a>
+    <a href="#recall">Recall Card</a>
+    <button type="button" onclick="window.print()">Print / Save PDF</button>
+  </nav>
+
+  <section id="foundation" aria-labelledby="foundation-title">
+    <h2 id="foundation-title"><span class="num">1</span>Knowledge Foundation</h2>
+
+    <h3>1.1 Required Match Fields</h3>
+    <div class="callout demo-point"><strong>Check:</strong> group, measure, comparison, time/condition, direction, magnitude, and strength.<br><button class="demo-trigger" type="button" data-demo="match-fields">View SAT Demo</button></div>
+
+    <h3>1.2 Read the Data Frame Before Values</h3>
+    <div class="grid-3">
+      <div class="card demo-point"><span class="label">WHAT</span><h3>Title + Measure</h3><p>先确定数据展示的对象与指标。</p><button class="demo-trigger" type="button" data-demo="frame-title">View SAT Demo</button></div>
+      <div class="card demo-point"><span class="label">WHO / WHEN</span><h3>Groups + Condition</h3><p>锁定组别、时间和处理条件。</p><button class="demo-trigger" type="button" data-demo="frame-groups">View SAT Demo</button></div>
+      <div class="card demo-point"><span class="label">HOW MUCH</span><h3>Units + Scale</h3><p>确认单位、起点和刻度间距。</p><button class="demo-trigger" type="button" data-demo="frame-units">View SAT Demo</button></div>
+    </div>
+
+    <h3>1.3 Evidence Directions</h3>
+    <table>
+      <thead><tr><th>Direction</th><th>What the Data Must Do</th><th>Core Check</th><th>Demo</th></tr></thead>
+      <tbody>
+        <tr class="demo-point"><td><strong>Complete / Illustrate</strong></td><td>用相关数据把句子或例子补完整。</td><td>Does the data instantiate the exact idea before the blank?</td><td><button class="demo-trigger" type="button" data-demo="direction-complete">View SAT Demo</button></td></tr>
+        <tr class="demo-point"><td><strong>Support</strong></td><td>让 claim 更可信；数据方向与预测一致。</td><td>If this evidence is true, does belief in the claim increase?</td><td><button class="demo-trigger" type="button" data-demo="direction-support">View SAT Demo</button></td></tr>
+        <tr class="demo-point"><td><strong>Undermine / Weaken</strong></td><td>显示相反结果、无效果或关键例外。</td><td>Would the claim need revision because of this evidence?</td><td><button class="demo-trigger" type="button" data-demo="direction-undermine">View SAT Demo</button></td></tr>
+      </tbody>
+    </table>
+
+    <h3>1.4 Common Data Relationships</h3>
+    <table>
+      <thead><tr><th>Relationship</th><th>Safe Language</th><th>Boundary</th><th>Demo</th></tr></thead>
+      <tbody>
+        <tr class="demo-point"><td>One Value</td><td>“Group A was about 42%.”</td><td>Check group, measure, unit, and time.</td><td><button class="demo-trigger" type="button" data-demo="relation-one">View SAT Demo</button></td></tr>
+        <tr class="demo-point"><td>Difference</td><td>“A was higher than B by about 8 points.”</td><td><em>Percentage points</em> and <em>percent</em> are not interchangeable.</td><td><button class="demo-trigger" type="button" data-demo="relation-difference">View SAT Demo</button></td></tr>
+        <tr class="demo-point"><td>Change over Time</td><td>“A increased from 20 to 31.”</td><td>Do not confuse change in one group with difference between groups.</td><td><button class="demo-trigger" type="button" data-demo="relation-change">View SAT Demo</button></td></tr>
+        <tr class="demo-point"><td>Positive Correlation</td><td>“As X increased, Y tended to increase.”</td><td>Correlation does not prove that X caused Y.</td><td><button class="demo-trigger" type="button" data-demo="relation-positive">View SAT Demo</button></td></tr>
+        <tr class="demo-point"><td>Negative Correlation</td><td>“As X increased, Y tended to decrease.”</td><td>Check the whole pattern, not two convenient points.</td><td><button class="demo-trigger" type="button" data-demo="relation-negative">View SAT Demo</button></td></tr>
+        <tr class="demo-point"><td>No Stable Pattern</td><td>“The values varied without a consistent direction.”</td><td>Do not force a trend that the display does not show.</td><td><button class="demo-trigger" type="button" data-demo="relation-none">View SAT Demo</button></td></tr>
+      </tbody>
+    </table>
+
+    <h3>1.5 Precision Language</h3>
+    <div class="grid-2">
+      <div class="card demo-point"><h3>Exact vs. Approximate</h3><p>图中未标出精确值时，用 <strong>about / approximately / nearly</strong>。</p><button class="demo-trigger" type="button" data-demo="precision-approx">View SAT Demo</button></div>
+      <div class="card demo-point"><h3>Strength</h3><p>Association 不能自动支持 <strong>always, proves, causes, all</strong>。</p><button class="demo-trigger" type="button" data-demo="precision-strength">View SAT Demo</button></div>
+      <div class="card demo-point"><h3>Respectively</h3><p>第一组对应第一个值，第二组对应第二个值。</p><button class="demo-trigger" type="button" data-demo="precision-respectively">View SAT Demo</button></div>
+      <div class="card demo-point"><h3>Prediction</h3><p>只有题目要求时才延伸趋势；预测必须在可见模式内。</p><button class="demo-trigger" type="button" data-demo="precision-prediction">View SAT Demo</button></div>
+    </div>
+
+    <h3>1.6 Trap Taxonomy</h3>
+    <div class="grid-3">
+      <div class="card demo-point"><h3>Accurate but Off-Claim</h3><p>数字是真的，但没有完成 claim。</p><button class="demo-trigger" type="button" data-demo="trap-offclaim">View SAT Demo</button></div>
+      <div class="card demo-point"><h3>Wrong Direction</h3><p>把 increase 写成 decrease，或把 support 写成 undermine。</p><button class="demo-trigger" type="button" data-demo="trap-direction">View SAT Demo</button></div>
+      <div class="card demo-point"><h3>Wrong Field</h3><p>换了 group、measure、time、condition 或 comparison。</p><button class="demo-trigger" type="button" data-demo="trap-field">View SAT Demo</button></div>
+      <div class="card demo-point"><h3>Right Idea, Wrong Magnitude</h3><p>方向正确，但数值或差值不匹配。</p><button class="demo-trigger" type="button" data-demo="trap-magnitude">View SAT Demo</button></div>
+      <div class="card demo-point"><h3>Overclaim</h3><p>把 association 写成 cause，或把 limited sample 推到全部人群。</p><button class="demo-trigger" type="button" data-demo="trap-overclaim">View SAT Demo</button></div>
+      <div class="card demo-point"><h3>Background Knowledge</h3><p>用常识替代 display 中实际给出的证据。</p><button class="demo-trigger" type="button" data-demo="trap-background">View SAT Demo</button></div>
+    </div>
+  </section>
+
+  <section id="system" aria-labelledby="system-title">
+    <h2 id="system-title"><span class="num">2</span>Question-Type System</h2>
+    <div class="route" aria-label="Official classification route">
+      <div class="node"><strong>Information and Ideas</strong><br><span class="small">Domain</span></div>
+      <div class="arrow">→</div>
+      <div class="node"><strong>Command of Evidence</strong><br><span class="small">Official Question Type</span></div>
+      <div class="arrow">→</div>
+      <div class="node active"><strong>Quantitative Evidence</strong><br><span class="small">Active source-supported Subtype</span></div>
+    </div>
+    <div class="callout demo-point"><strong>Trigger:</strong> graph / chart / table + a stem asking which choice <em>uses data</em>.<br><button class="demo-trigger" type="button" data-demo="type-trigger">View SAT Demo</button></div>
+  </section>
+
+  <section id="methods" aria-labelledby="methods-title">
+    <h2 id="methods-title"><span class="num">3</span>Method System</h2>
+    <h3>3.1 Overall Method — Claim-Direction-Evidence Lock</h3>
+    <div class="method">
+      <div class="step demo-point"><strong>Box the Claim</strong>框出真正要证明、举例或削弱的句子。<button class="demo-trigger" type="button" data-demo="overall-claim">View SAT Demo</button></div>
+      <div class="step demo-point"><strong>Label Direction</strong>写 C / S / U。<button class="demo-trigger" type="button" data-demo="overall-direction">View SAT Demo</button></div>
+      <div class="step demo-point"><strong>Predict Evidence</strong>先预测什么结果会完成这个 job。<button class="demo-trigger" type="button" data-demo="overall-predict">View SAT Demo</button></div>
+      <div class="step demo-point"><strong>Test Variables</strong>逐项检查 group, measure, condition, direction。<button class="demo-trigger" type="button" data-demo="overall-variables">View SAT Demo</button></div>
+      <div class="step demo-point"><strong>Keep Exact Fit</strong>选择最直接、最完整、不过度的证据。<button class="demo-trigger" type="button" data-demo="overall-fit">View SAT Demo</button></div>
+    </div>
+
+    <h3>3.2 Subtype Method — Claim-to-Cells Map</h3>
+    <div class="method">
+      <div class="step demo-point"><strong>Claim First</strong>标出 group, measure, comparison, condition, direction, magnitude。<button class="demo-trigger" type="button" data-demo="cells-claim">View SAT Demo</button></div>
+      <div class="step demo-point"><strong>Frame</strong>确认 title, axes/headers, units, legend, scale。<button class="demo-trigger" type="button" data-demo="cells-frame">View SAT Demo</button></div>
+      <div class="step demo-point"><strong>Points</strong>只定位 claim 需要的 cells / points。<button class="demo-trigger" type="button" data-demo="cells-points">View SAT Demo</button></div>
+      <div class="step demo-point"><strong>Sentence</strong>先说出准确的 English numeric comparison。<button class="demo-trigger" type="button" data-demo="cells-sentence">View SAT Demo</button></div>
+      <div class="step demo-point"><strong>Match + Limit</strong>匹配 wording、strength 与 evidence boundary。<button class="demo-trigger" type="button" data-demo="cells-limit">View SAT Demo</button></div>
+    </div>
+  </section>
+
+  <section id="model" aria-labelledby="model-title">
+    <h2 id="model-title"><span class="num">4</span>Overall-Method Worked Micro-Model</h2>
+    <div class="micro">
+      <p><span class="label">WORKED MINI-QUESTION</span></p>
+      <p><strong>SAT task:</strong> Use the table to select the evidence that most effectively supports the claim.</p>
+      <p><strong>Claim:</strong> “The treatment group’s advantage over the control group grew from 2022 to 2023.”</p>
+      <table>
+        <thead><tr><th>Year</th><th>Control</th><th>Treatment</th></tr></thead>
+        <tbody><tr><td>2022</td><td>42</td><td>44</td></tr><tr><td>2023</td><td>43</td><td>51</td></tr></tbody>
+      </table>
+      <p><strong>Which choice most effectively uses data from the table to support the claim?</strong></p>
+      <ol class="worked-choices">
+        <li><span class="choice-letter">A.</span><span>The treatment group had a value of 51 in 2023.</span></li>
+        <li><span class="choice-letter">B.</span><span>The control group increased from 42 in 2022 to 43 in 2023.</span></li>
+        <li class="model-correct"><span class="choice-letter">C.</span><span>The treatment group exceeded the control group by 2 units in 2022 and by 8 units in 2023.</span></li>
+        <li><span class="choice-letter">D.</span><span>The treatment group increased by 7 units, while the control group increased by 1 unit.</span></li>
+      </ol>
+      <div class="resolution">
+        <p><strong>Model resolution: C</strong></p>
+        <div class="trace">
+          <div><strong>Claim</strong>Advantage grew</div>
+          <div><strong>Direction</strong>Support</div>
+          <div><strong>Cells</strong>44−42=2; 51−43=8</div>
+          <div><strong>Match</strong>Gap grew from 2 to 8</div>
+        </div>
+        <p><strong>Why C:</strong> “Advantage grew” requires both treatment–control gaps. C states both comparisons directly.</p>
+        <p><strong>Why A is tempting:</strong> 51 is accurate, but one value cannot show that the advantage changed across two years.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="applications" aria-labelledby="applications-title">
+    <h2 id="applications-title"><span class="num">5</span>Subtype Reference &amp; Applications</h2>
+    <h3>5.1 Source-Grounded Annotated Demonstration</h3>
+    <div class="micro">
+      <p><span class="label">ANNOTATED MINI-QUESTION</span></p>
+      <p><strong>SAT task:</strong> Use the table to select the example that most effectively illustrates the statement.</p>
+      <p><strong>Statement:</strong> An antibiotic can be effective against more than 80% of infections generally yet be over 20 percentage points less effective against MRSA.</p>
+      <table>
+        <thead><tr><th>Antibiotic</th><th>General effectiveness</th><th>MRSA effectiveness</th></tr></thead>
+        <tbody>
+          <tr><td>Vancomycin</td><td>100%</td><td>100%</td></tr>
+          <tr><td>Mupirocin</td><td>90.28%</td><td>73.08%</td></tr>
+          <tr><td>Rifampicin</td><td>86.11%</td><td>61.54%</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Which choice most effectively uses data from the table to illustrate the statement?</strong></p>
+      <ol class="worked-choices">
+        <li><span class="choice-letter">A.</span><span>Vancomycin was 100% effective both generally and against MRSA.</span></li>
+        <li><span class="choice-letter">B.</span><span>Mupirocin was 90.28% effective generally and 73.08% effective against MRSA.</span></li>
+        <li class="model-correct"><span class="choice-letter">C.</span><span>Rifampicin was 86.11% effective generally but only 61.54% effective against MRSA.</span></li>
+        <li><span class="choice-letter">D.</span><span>Rifampicin was 61.54% effective generally and 86.11% effective against MRSA.</span></li>
+      </ol>
+      <div class="resolution">
+        <p><strong>Annotated resolution: C</strong></p>
+        <p><strong>Claim-to-Cells Map:</strong> same antibiotic → general effectiveness above 80% → MRSA effectiveness more than 20 points lower.</p>
+        <p><strong>Calculation:</strong> 86.11 − 61.54 = 24.57 percentage points.</p>
+        <p><strong>Closest trap: B.</strong> Its values are accurate, but the gap is only 17.20 percentage points, so it misses the “over 20” field.</p>
+      </div>
+    </div>
+
+    <article class="question" aria-labelledby="guided-title">
+      <div class="question-head"><h3 id="guided-title">5.2 Guided Application</h3><span class="difficulty">Easy</span></div>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 650 430" role="img" aria-labelledby="chart-title chart-desc">
+          <title id="chart-title">Amount of additional electricity wind turbines could generate when winds were stronger than forecast</title>
+          <desc id="chart-desc">West generated about 150 thousand additional megawatt-hours, and Midwest generated about 180 thousand additional megawatt-hours.</desc>
+          <rect width="650" height="430" fill="#fff"/>
+          <text x="325" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#17212b">Amount of Additional Electricity Wind Turbines</text>
+          <text x="325" y="54" text-anchor="middle" font-size="20" font-weight="700" fill="#17212b">Could Generate When Winds Were Stronger Than Forecast</text>
+          <line x1="105" y1="350" x2="585" y2="350" stroke="#263d50" stroke-width="2"/>
+          <line x1="105" y1="90" x2="105" y2="350" stroke="#263d50" stroke-width="2"/>
+          <g stroke="#c2ccd5" stroke-width="1">
+            <line x1="105" y1="285" x2="585" y2="285"/><line x1="105" y1="220" x2="585" y2="220"/>
+            <line x1="105" y1="155" x2="585" y2="155"/><line x1="105" y1="90" x2="585" y2="90"/>
+          </g>
+          <g font-size="15" fill="#324a5e" text-anchor="end">
+            <text x="94" y="355">0</text><text x="94" y="290">50</text><text x="94" y="225">100</text>
+            <text x="94" y="160">150</text><text x="94" y="95">200</text>
+          </g>
+          <text transform="translate(28 230) rotate(-90)" text-anchor="middle" font-size="16" fill="#17212b">Electricity (in thousands of MWh)</text>
+          <rect x="205" y="155" width="110" height="195" fill="#aeb6bd" stroke="#17212b"/>
+          <rect x="345" y="116" width="110" height="234" fill="#3b3f43" stroke="#17212b"/>
+          <text x="260" y="377" text-anchor="middle" font-size="17" fill="#17212b">West</text>
+          <text x="400" y="377" text-anchor="middle" font-size="17" fill="#17212b">Midwest</text>
+        </svg>
+      </div>
+      <p class="stimulus">Electric companies that use wind turbines rely on weather forecasts to predict the maximum amount of power, in megawatt-hours (MWh), they can generate using wind so that they can determine how much they’ll need to generate from other sources. When winds are stronger than they were forecast to be, however, the predicted maximum amount of electricity wind turbines could generate will be too low. For example, the graph shows that for the West region, the winds were ______</p>
+      <p><strong>Which choice most effectively uses data from the graph to complete the example?</strong></p>
+      <ol class="choices">
+        <li><label><input type="radio" name="guided"><span class="choice-letter">A.</span><span>strong enough to generate about 150 thousand more MWh of electricity from wind turbines.</span></label></li>
+        <li><label><input type="radio" name="guided"><span class="choice-letter">B.</span><span>so weak that the electricity from wind turbines was about 175 thousand MWh less than predicted.</span></label></li>
+        <li><label><input type="radio" name="guided"><span class="choice-letter">C.</span><span>so weak that the electricity from wind turbines was about 150 thousand MWh less than predicted.</span></label></li>
+        <li><label><input type="radio" name="guided"><span class="choice-letter">D.</span><span>strong enough to generate about 175 thousand more MWh of electricity from wind turbines.</span></label></li>
+      </ol>
+      <div class="worksheet">
+        <p><strong>Guided Map</strong></p>
+        <p>Claim field — region: <span class="fill"></span> measure: <span class="fill"></span></p>
+        <p>Direction required by “additional”: <span class="fill"></span> Approximate value: <span class="fill"></span></p>
+        <p>Write one plain data sentence before choosing:</p><div class="answer-space" aria-label="Guided evidence sentence writing space"></div>
+        <p>Closest rejected option and failed field:</p><div class="answer-space" aria-label="Guided rejected choice writing space"></div>
+      </div>
+    </article>
+
+    <article class="question" aria-labelledby="diagnostic-title">
+      <div class="question-head"><h3 id="diagnostic-title">5.3 Diagnostic Application</h3><span class="difficulty">Easy</span></div>
+      <table>
+        <caption><strong>Average Temperatures in July in Four Locations in the Navajo Nation</strong></caption>
+        <thead><tr><th>Location</th><th>Average highest temperature (°F)</th><th>Average lowest temperature (°F)</th></tr></thead>
+        <tbody>
+          <tr><td>Teec Nos Pos</td><td>94°</td><td>65°</td></tr>
+          <tr><td>Cameron</td><td>99°</td><td>65°</td></tr>
+          <tr><td>Ramah</td><td>83°</td><td>50°</td></tr>
+          <tr><td>Tuba City</td><td>83°</td><td>50°</td></tr>
+        </tbody>
+      </table>
+      <p class="stimulus">The Navajo Nation has the largest land area of any tribal nation in the United States: over 27,000 square miles in the Southwest. Because this area is so huge and its communities are located at various elevations, the people of the Navajo Nation can experience different climate conditions depending on where they live. For example, in July, ______</p>
+      <p><strong>Which choice most effectively uses data from the table to complete the statement?</strong></p>
+      <ol class="choices">
+        <li><label><input type="radio" name="diagnostic"><span class="choice-letter">A.</span><span>the lowest temperature for both Cameron and Teec Nos Pos was 65°.</span></label></li>
+        <li><label><input type="radio" name="diagnostic"><span class="choice-letter">B.</span><span>Tuba City’s average highest temperature was 94°, while Teec Nos Pos’s was 93°.</span></label></li>
+        <li><label><input type="radio" name="diagnostic"><span class="choice-letter">C.</span><span>Ramah’s average highest temperature was 83°, while Cameron’s was 99°.</span></label></li>
+        <li><label><input type="radio" name="diagnostic"><span class="choice-letter">D.</span><span>the lowest temperature for both Ramah and Tuba City was 50°.</span></label></li>
+      </ol>
+      <div class="worksheet">
+        <p><strong>First answer:</strong> <span class="fill"></span> <strong>Confidence (1–5):</strong> <span class="fill"></span></p>
+        <p><strong>Exact English evidence:</strong></p><div class="answer-space" aria-label="Diagnostic English evidence writing space"></div>
+        <p><strong>Closest rejected option + failed claim field:</strong></p><div class="answer-space" aria-label="Diagnostic rejected choice writing space"></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="recall" aria-labelledby="recall-title">
+    <h2 id="recall-title"><span class="num">6</span>Recall / Index Card</h2>
+    <div class="recall">
+      <div><strong>JOB</strong>Use exact data to complete, support, or undermine the stated claim.</div>
+      <div><strong>OVERALL</strong>Claim-Direction-Evidence Lock<br>Claim → Direction → Prediction → Variable test → Exact fit</div>
+      <div><strong>QUANTITATIVE</strong>Claim-to-Cells Map<br>Claim → Frame → Points → Sentence → Match + Limit</div>
+    </div>
+    <div class="callout success demo-point"><strong>Final Self-Check:</strong> Can I cite the exact cells or points that prove the whole answer sentence?<br><button class="demo-trigger" type="button" data-demo="recall-chain">View SAT Demo</button></div>
+  </section>
+
+  <p class="footer">SAT Reading &amp; Writing · Trial Class · Quantitative Evidence</p>
+</main>
+
+<dialog id="sat-demo-dialog" class="demo-dialog" aria-labelledby="sat-demo-title">
+  <div class="demo-dialog-head">
+    <h2 id="sat-demo-title">SAT Context Demo</h2>
+    <button id="sat-demo-close" class="demo-close" type="button" aria-label="Close demo">Close</button>
+  </div>
+  <div class="demo-dialog-body">
+    <p id="sat-demo-context" class="demo-context"></p>
+    <p id="sat-demo-example" class="demo-example"></p>
+    <p id="sat-demo-focus" class="demo-focus"></p>
+  </div>
+</dialog>
+
+<script>
+  const satDemos = {
+    "match-fields": {
+      title: "Required Match Fields",
+      context: "SAT-style context: A table reports the percentage of rural and urban households using solar power in 2022 and 2024.",
+      example: "Claim: In 2024, solar use was higher among rural households than among urban households.\nPossible evidence: In 2024, 38% of rural households and 29% of urban households used solar power.",
+      focus: "The evidence matches group, measure, comparison, year, direction, and magnitude."
+    },
+    "frame-title": {
+      title: "Title + Measure",
+      context: "Display title: Average Share of Commuters Using Public Transit",
+      example: "Possible option: In 2022, approximately 36% of commuters in City L used public transit.",
+      focus: "The measure is a share of commuters, not the number of buses or total commuters."
+    },
+    "frame-groups": {
+      title: "Groups + Condition",
+      context: "A graph includes urban and rural respondents for 2010 and 2020.",
+      example: "Claim field: rural respondents in 2020.\nRejected option: Urban respondents reached 64% in 2020.",
+      focus: "The number may be accurate, but the group is wrong."
+    },
+    "frame-units": {
+      title: "Units + Scale",
+      context: "The y-axis is labeled Revenue (millions of dollars), and a point appears at 46.",
+      example: "Safe expression: revenue was about $46 million.\nUnsafe expression: revenue was $46.",
+      focus: "Carry the unit from the axis into the evidence sentence."
+    },
+    "direction-complete": {
+      title: "Complete / Illustrate",
+      context: "Statement: Shaded plots retained more soil moisture than full-sun plots; for example, ____.",
+      example: "Possible completion: after ten days, shaded plots retained 31% moisture, whereas full-sun plots retained 18%.",
+      focus: "The data instantiate the exact idea immediately before the blank."
+    },
+    "direction-support": {
+      title: "Support",
+      context: "Hypothesis: Longer daily light exposure increases seedling growth.",
+      example: "Supporting evidence: seedlings exposed to 12 hours of light grew 8.4 cm on average, compared with 4.1 cm for seedlings exposed to 6 hours.",
+      focus: "The observed direction matches the hypothesis prediction."
+    },
+    "direction-undermine": {
+      title: "Undermine / Weaken",
+      context: "Claim: The filter has no effect on the amount of pollutant in the water.",
+      example: "Undermining evidence: filtered samples contained 3 ppm of the pollutant, while unfiltered samples contained 11 ppm.",
+      focus: "A large difference makes the no-effect claim less credible."
+    },
+    "relation-one": {
+      title: "One Value",
+      context: "A bar for Group A in 2021 reaches slightly above 40%.",
+      example: "Possible SAT expression: In 2021, about 42% of participants in Group A selected the new design.",
+      focus: "One value is enough only when the statement asks for one group at one time."
+    },
+    "relation-difference": {
+      title: "Difference",
+      context: "Group A is 58%; Group B is 50%.",
+      example: "Safe expression: Group A was 8 percentage points higher than Group B.",
+      focus: "58% − 50% = 8 percentage points, not 8 percent."
+    },
+    "relation-change": {
+      title: "Change over Time",
+      context: "A table gives Group A values of 20 in 2021 and 31 in 2023.",
+      example: "Possible SAT expression: Group A increased from 20 in 2021 to 31 in 2023.",
+      focus: "This describes change within one group, not a between-group difference."
+    },
+    "relation-positive": {
+      title: "Positive Correlation",
+      context: "Across six sites, higher rainfall values generally appear with higher plant-growth values.",
+      example: "Safe option wording: As rainfall increased, plant growth tended to increase.",
+      focus: "Use tended to increase; do not replace association with caused."
+    },
+    "relation-negative": {
+      title: "Negative Correlation",
+      context: "Across seven locations, average temperature generally falls as elevation rises.",
+      example: "Safe option wording: Higher elevations tended to be associated with lower average temperatures.",
+      focus: "Check the full pattern before naming a negative relationship."
+    },
+    "relation-none": {
+      title: "No Stable Pattern",
+      context: "The recorded values across four months are 12, 18, 11, and 17.",
+      example: "Safe expression: The values varied without a consistent upward or downward trend.",
+      focus: "Do not force an increase from a sequence that repeatedly changes direction."
+    },
+    "precision-approx": {
+      title: "Exact vs. Approximate",
+      context: "An unlabeled bar ends just below the 50 mark.",
+      example: "Safe option: The value was nearly 50.\nOverprecise option: The value was exactly 48.7.",
+      focus: "The display supports approximation but not an invented decimal."
+    },
+    "precision-strength": {
+      title: "Strength",
+      context: "A study at one school finds an association between sleep and test performance.",
+      example: "Supported: More sleep was associated with higher performance in the study.\nOverclaim: More sleep always causes all students to score higher.",
+      focus: "Match the strength and population of the evidence."
+    },
+    "precision-respectively": {
+      title: "Respectively",
+      context: "Moss and lichen covered 14% and 9% of the sampled area, respectively.",
+      example: "Moss → 14%; lichen → 9%.",
+      focus: "Keep the first noun with the first value and the second noun with the second value."
+    },
+    "precision-prediction": {
+      title: "Prediction",
+      context: "A sequence rises from 10 to 13 to 16 at equal intervals.",
+      example: "Reasonable prediction: the next value would be about 19.\nUnsupported prediction: the next value would be 40.",
+      focus: "Extend the visible pattern only as far as the prompt requires."
+    },
+    "trap-offclaim": {
+      title: "Accurate but Off-Claim",
+      context: "Claim: The treatment group’s advantage over the control group grew over time.",
+      example: "Tempting option: The treatment group reached 51 in 2023.",
+      focus: "51 is accurate, but one value does not establish a changing advantage."
+    },
+    "trap-direction": {
+      title: "Wrong Direction",
+      context: "A graph falls from 80 in 2021 to 55 in 2023.",
+      example: "Trap option: The measure increased substantially from 2021 to 2023.",
+      focus: "The years and measure match, but the direction is reversed."
+    },
+    "trap-field": {
+      title: "Wrong Field",
+      context: "The claim is about rural respondents; the graph shows urban 72% and rural 48%.",
+      example: "Trap option: 72% of rural respondents selected the proposal.",
+      focus: "The option borrows the urban value and assigns it to the rural group."
+    },
+    "trap-magnitude": {
+      title: "Right Idea, Wrong Magnitude",
+      context: "The West bar shows about 150 thousand additional MWh.",
+      example: "Trap option: The West generated about 175 thousand additional MWh.",
+      focus: "The group and direction fit, but the magnitude does not."
+    },
+    "trap-overclaim": {
+      title: "Overclaim",
+      context: "Two variables are positively associated in an observational study.",
+      example: "Trap option: Increasing X causes Y to increase in every case.",
+      focus: "The wording adds causation and certainty that the data do not establish."
+    },
+    "trap-background": {
+      title: "Background Knowledge",
+      context: "A table lists July temperatures for four locations.",
+      example: "Trap reasoning: Desert locations are usually hot, so this option must be correct.",
+      focus: "Use only the displayed values and the statement’s required relationship."
+    },
+    "type-trigger": {
+      title: "Question-Type Trigger",
+      context: "A graph appears beside a short passage.",
+      example: "Typical stem: Which choice most effectively uses data from the graph to complete the statement?",
+      focus: "That stem signals Quantitative Evidence and calls for claim-to-data matching."
+    },
+    "overall-claim": {
+      title: "Box the Claim",
+      context: "Passage: The team tested two coatings. The researchers concluded that coating R retained heat longer than coating S.",
+      example: "Box: coating R retained heat longer than coating S.",
+      focus: "Background about the team is not the claim that the data must support."
+    },
+    "overall-direction": {
+      title: "Label Direction",
+      context: "Stem: Which finding, if true, would most undermine the researchers’ claim?",
+      example: "Label: U (undermine).",
+      focus: "The correct evidence should reduce confidence in the claim, not support it."
+    },
+    "overall-predict": {
+      title: "Predict Evidence",
+      context: "Claim: The new device reduces task-completion time.",
+      example: "Prediction before reading options: device group time < control group time.",
+      focus: "A directional prediction makes wrong-direction options easier to reject."
+    },
+    "overall-variables": {
+      title: "Test Variables",
+      context: "Claim fields: adults + 2024 + response rate.",
+      example: "Trap option: Teenagers had a 61% response rate in 2024.",
+      focus: "Year and measure match, but the population field fails."
+    },
+    "overall-fit": {
+      title: "Keep Exact Fit",
+      context: "Claim: In 2024, rural participation was moderately higher than urban participation.",
+      example: "Exact-fit option: Rural participation was 62%, compared with 55% for urban participation.",
+      focus: "The option preserves group, year, comparison, direction, and reasonable strength."
+    },
+    "cells-claim": {
+      title: "Claim First",
+      context: "Statement: Among rural residents in 2023, support was 12 percentage points higher than among urban residents.",
+      example: "Fields: rural vs. urban | support | 2023 | rural higher | 12 points.",
+      focus: "Turn the sentence into a checklist before touching the table."
+    },
+    "cells-frame": {
+      title: "Frame",
+      context: "Table title: Support for Proposal by Residence, 2023; values are percentages.",
+      example: "Frame: groups = rural/urban; measure = support; time = 2023; unit = %.",
+      focus: "The frame tells you what each cell means."
+    },
+    "cells-points": {
+      title: "Points",
+      context: "The same table includes rural 63%, urban 51%, suburban 58%, and other 46%.",
+      example: "Needed cells: rural 63% and urban 51%.",
+      focus: "The claim does not require the suburban or other rows."
+    },
+    "cells-sentence": {
+      title: "Sentence",
+      context: "Needed cells: rural 63%; urban 51%.",
+      example: "Own sentence: Rural support was 12 percentage points higher than urban support in 2023.",
+      focus: "Say the data relationship before matching answer choices."
+    },
+    "cells-limit": {
+      title: "Match + Limit",
+      context: "The table shows rural 63% and urban 51% in one survey.",
+      example: "Supported option: Rural support was 12 percentage points higher.\nOverclaim: Rural residence caused greater support.",
+      focus: "The values support a difference, not a causal explanation."
+    },
+    "recall-chain": {
+      title: "Full Method Chain",
+      context: "Claim: Group R’s lead over Group S widened from 2022 to 2023.",
+      example: "Claim → support direction → predict a larger later gap → read both years → calculate both gaps → choose the option stating both comparisons.",
+      focus: "If one link is missing, the evidence sentence may be true but incomplete."
+    }
+  };
+
+  const demoDialog = document.getElementById("sat-demo-dialog");
+  const demoTitle = document.getElementById("sat-demo-title");
+  const demoContext = document.getElementById("sat-demo-context");
+  const demoExample = document.getElementById("sat-demo-example");
+  const demoFocus = document.getElementById("sat-demo-focus");
+  const demoClose = document.getElementById("sat-demo-close");
+  let demoReturnFocus = null;
+
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest(".demo-trigger");
+    if (!trigger) return;
+    const demo = satDemos[trigger.dataset.demo];
+    if (!demo) return;
+    demoReturnFocus = trigger;
+    demoTitle.textContent = demo.title;
+    demoContext.textContent = demo.context;
+    demoExample.textContent = demo.example;
+    demoFocus.textContent = `Focus: ${demo.focus}`;
+    demoDialog.showModal();
+  });
+
+  demoClose.addEventListener("click", () => demoDialog.close());
+  demoDialog.addEventListener("click", (event) => {
+    if (event.target === demoDialog) demoDialog.close();
+  });
+  demoDialog.addEventListener("close", () => demoReturnFocus?.focus());
+</script>
+</body>
+</html>
