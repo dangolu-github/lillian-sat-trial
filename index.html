@@ -14,6 +14,7 @@
     .eyebrow { color:var(--blue); font-size:.78rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
     h1 { margin:.3rem 0 .7rem; font-size:clamp(2.25rem,7vw,4.5rem); line-height:1; letter-spacing:-.045em; }
     .intro { max-width:60ch; color:var(--muted); font-size:1.08rem; }
+    .section-title { margin:34px 0 14px; font-size:1rem; color:var(--blue); letter-spacing:.08em; text-transform:uppercase; }
     .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
     a { display:flex; min-height:250px; flex-direction:column; justify-content:space-between; padding:28px; border:1px solid var(--line); border-radius:18px; background:var(--paper); color:inherit; text-decoration:none; box-shadow:0 18px 48px rgba(38,61,88,.1); transition:transform .16s ease,box-shadow .16s ease; }
     a:hover { transform:translateY(-3px); box-shadow:0 22px 55px rgba(38,61,88,.16); }
@@ -31,9 +32,10 @@
     <header>
       <p class="eyebrow">SAT Reading &amp; Writing</p>
       <h1>Trial Class Review</h1>
-      <p class="intro">Use these two learning guides to review the core methods and examples from class. You can also save either page as a PDF.</p>
+      <p class="intro">Review the class methods, then complete the two independent challenge-practice sets. Each page can also be saved as a PDF.</p>
     </header>
-    <section class="grid" aria-label="Review materials">
+    <h2 class="section-title">Class Review</h2>
+    <section class="grid" aria-label="Class review materials">
       <a href="./quantitative-evidence/">
         <div>
           <span class="number">01</span>
@@ -51,7 +53,26 @@
         <span class="open">Open Knowledge Review →</span>
       </a>
     </section>
-    <footer>Trial class review materials · SAT Reading &amp; Writing</footer>
+    <h2 class="section-title">Challenge Practice</h2>
+    <section class="grid" aria-label="Independent challenge practice">
+      <a href="./practice/command-of-evidence/">
+        <div>
+          <span class="number">03</span>
+          <h2>Command of Evidence Practice</h2>
+          <p class="description">45 challenging questions: 30 Quantitative Evidence and 15 Textual Evidence.</p>
+        </div>
+        <span class="open">Open Practice Set →</span>
+      </a>
+      <a href="./practice/sentence-boundaries/">
+        <div>
+          <span class="number">04</span>
+          <h2>Sentence Boundaries Practice</h2>
+          <p class="description">45 challenging mixed questions covering six sentence-boundary patterns.</p>
+        </div>
+        <span class="open">Open Practice Set →</span>
+      </a>
+    </section>
+    <footer>SAT Reading &amp; Writing · Review and independent practice</footer>
   </main>
 </body>
 </html>
