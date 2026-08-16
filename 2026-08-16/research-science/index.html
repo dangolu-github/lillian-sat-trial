@@ -1,0 +1,1460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="icon" href="data:,">
+<title>Lillian Approach Learning 1 · Research and Science Texts</title>
+<style>
+  :root {
+    --ink:#182432; --muted:#596b7f; --navy:#173f68; --blue:#d9ecff; --blue-line:#6da7dc;
+    --teal:#dff4ef; --teal-line:#4b9b88; --red:#fff0ed; --red-line:#c86c59;
+    --amber:#fff3cf; --amber-line:#c59426; --paper:#f7f9fc; --white:#fff; --line:#cfd8e3;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:Arial, Helvetica, sans-serif; line-height:1.58; letter-spacing:0; }
+  button, input, select { font:inherit; letter-spacing:0; }
+  a { color:#145a91; }
+  .teacher-map { max-width:1120px; margin:0 auto; padding:2rem 1rem 0; }
+  .teacher-map > h1 { margin:0 0 .35rem; font-size:1.65rem; color:var(--navy); }
+  .teacher-map > p { margin:.2rem 0 1rem; color:var(--muted); }
+  .source-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+  .source-card { border:1px solid #b9c9da; border-left:4px solid var(--navy); border-radius:6px; background:#eef5fb; padding:.85rem; }
+  .source-card h2 { margin:0 0 .35rem; font-size:1rem; color:var(--navy); }
+  .source-card p { margin:0; font-size:.86rem; }
+  code { overflow-wrap:anywhere; }
+  .topbar { position:sticky; top:0; z-index:5; background:rgba(247,249,252,.97); border-bottom:1px solid var(--line); padding:.55rem max(1rem, calc((100% - 1080px)/2)); display:flex; justify-content:space-between; align-items:center; gap:.5rem; }
+  .print-button { border:1px solid var(--navy); border-radius:6px; background:var(--white); color:var(--navy); padding:.45rem .75rem; font-weight:700; cursor:pointer; }
+  main { max-width:1080px; margin:0 auto; padding:1.2rem 1rem 4rem; }
+  .masthead { border-top:7px solid var(--navy); border-bottom:1px solid var(--line); padding:1.7rem 0 1.2rem; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:1rem; align-items:end; }
+  .eyebrow { margin:0 0 .35rem; color:#267b6d; font-size:.78rem; font-weight:800; text-transform:uppercase; }
+  h1,h2,h3,p { overflow-wrap:anywhere; }
+  .masthead h1 { margin:0; color:var(--navy); font-size:2.35rem; line-height:1.08; }
+  .subtitle { margin:.55rem 0 0; color:var(--muted); }
+  .review-number { min-width:96px; border:1px solid var(--teal-line); border-radius:6px; padding:.65rem; background:var(--teal); text-align:center; color:#195f54; font-weight:800; }
+  .notice { margin:1rem 0; border-left:4px solid var(--amber-line); background:var(--amber); padding:.8rem .9rem; border-radius:0 6px 6px 0; }
+  .contents { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:.45rem; margin:1rem 0 1.5rem; }
+  .contents a { min-height:54px; display:flex; align-items:center; justify-content:center; text-align:center; padding:.55rem; border:1px solid var(--line); border-radius:6px; background:var(--white); text-decoration:none; color:var(--navy); font-size:.86rem; font-weight:700; }
+  .section { border-top:2px solid var(--navy); padding-top:1.1rem; margin-top:2rem; }
+  .section-heading { display:grid; grid-template-columns:auto minmax(0,1fr); gap:.8rem; align-items:start; margin-bottom:1rem; }
+  .section-number { width:42px; height:42px; display:grid; place-items:center; background:var(--navy); color:#fff; border-radius:6px; font-weight:800; }
+  .section-heading h2 { margin:0; color:var(--navy); font-size:1.55rem; line-height:1.15; }
+  .section-heading p { margin:.25rem 0 0; color:var(--muted); }
+  .knowledge-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.85rem; }
+  .knowledge-card { background:var(--white); border:1px solid var(--line); border-top:4px solid var(--blue-line); border-radius:6px; padding:1rem; min-width:0; }
+  .knowledge-card h3 { margin:0 0 .5rem; color:var(--navy); font-size:1.08rem; line-height:1.28; }
+  .rule { margin:.2rem 0 .75rem; }
+  .demo, .answer-like, .trap, .note, .source-note { border-radius:6px; padding:.75rem; margin:.65rem 0; }
+  .demo { background:var(--teal); border-left:4px solid var(--teal-line); }
+  .answer-like { background:var(--blue); border-left:4px solid var(--blue-line); font-family:Georgia, 'Times New Roman', serif; }
+  .trap { background:var(--red); border-left:4px solid var(--red-line); }
+  .note { background:#f0f3f7; border-left:4px solid #8798aa; }
+  .source-note { background:#eef5fb; border:1px solid #c6d7e7; color:#29445e; font-size:.82rem; }
+  .label { display:block; margin-bottom:.25rem; color:#31536d; font-size:.72rem; font-weight:800; text-transform:uppercase; }
+  .trap .label { color:#8d3426; }
+  .sat-vocab { background:#cfe7ff; color:inherit; font-weight:inherit; text-decoration:none; padding:0 .08em; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .reveal-control { width:100%; min-height:42px; margin-top:.55rem; border:1px solid var(--navy); border-radius:6px; background:#fff; color:var(--navy); font-weight:800; cursor:pointer; }
+  .reveal-control:hover, .reveal-control:focus-visible { background:#eaf3fb; outline:3px solid #aacce9; outline-offset:2px; }
+  .reveal-panel { margin-top:.6rem; }
+  .reveal-panel[hidden] { display:none; }
+  .reveal-panel ul { margin:.35rem 0; padding-left:1.25rem; }
+  .method-map { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:.45rem; margin:1rem 0; }
+  .method-step { border:1px solid var(--line); border-radius:6px; background:#fff; padding:.75rem; text-align:center; }
+  .method-step strong { display:block; color:var(--navy); }
+  .worked-model { border:1px solid var(--teal-line); border-left:6px solid var(--teal-line); border-radius:6px; background:#f5fbf9; padding:1rem; }
+  .worked-model h3 { margin:0 0 .5rem; color:#195f54; }
+  .worked-model p { margin:.45rem 0; }
+  .route-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; margin-bottom:1rem; }
+  .route-card, .demo-card, .passage-card { min-width:0; border:1px solid var(--line); border-radius:7px; background:#fff; padding:.9rem; }
+  .route-card { border-top:4px solid #8668ad; }
+  .route-card h3, .demo-card h3 { margin:0 0 .45rem; color:var(--navy); }
+  .route-card ul, .resolution ul { margin:.35rem 0; padding-left:1.2rem; }
+  .route-card li, .resolution li { margin:.25rem 0; }
+  .route-fields { margin:.55rem 0; padding:.6rem .7rem; background:var(--blue); border-left:4px solid var(--blue-line); }
+  .route-method { margin:.55rem 0; padding:.65rem .75rem; background:#f1ebf9; border-left:4px solid #8668ad; }
+  .route-use { margin-top:.65rem; color:#603f85; font-weight:800; }
+  .passage-card { margin-bottom:.85rem; border-left:6px solid var(--teal-line); background:#f8fcfb; }
+  .passage-card p { margin:.45rem 0; font-family:Georgia, 'Times New Roman', serif; font-size:1.03rem; }
+  .study-table { width:100%; margin:.75rem 0; border-collapse:collapse; background:#fff; font-size:.88rem; }
+  .study-table caption { padding:.45rem; color:var(--navy); font-weight:800; text-align:left; }
+  .study-table th, .study-table td { border:1px solid var(--line); padding:.5rem; text-align:center; }
+  .study-table thead th { background:#eaf2f9; color:var(--navy); }
+  .demo-stack { display:grid; gap:.85rem; }
+  .demo-card { border-top:4px solid var(--blue-line); }
+  .job-line { display:flex; flex-wrap:wrap; gap:.4rem; margin:.4rem 0 .65rem; }
+  .pill { display:inline-block; padding:.2rem .5rem; border:1px solid #b8cadb; border-radius:999px; background:#eef5fb; color:#294a66; font-size:.78rem; font-weight:800; }
+  .strategy-trained { margin:.6rem 0; padding:.65rem .75rem; border-left:4px solid var(--teal-line); background:#eef9f6; }
+  .cue-map { margin:.6rem 0; padding:.65rem .75rem; border-left:4px solid var(--amber-line); background:#fff8df; }
+  .prompt { margin:.7rem 0; font-weight:800; }
+  .options { display:grid; gap:.4rem; margin:.55rem 0; }
+  .option { display:grid; grid-template-columns:2rem minmax(0,1fr); gap:.4rem; padding:.55rem .65rem; border:1px solid var(--line); border-radius:6px; background:#fbfcfe; }
+  .option strong { color:var(--navy); }
+  .resolution { padding:.8rem; border:1px solid var(--teal-line); border-radius:7px; background:#eff9f6; color:#18382f; }
+  .resolved-choice { font-size:1.02rem; font-weight:900; color:#155e51; }
+  .method-trace-demo { margin-top:.65rem; padding:.7rem; border-left:4px solid #8668ad; background:#f8f4fc; }
+  .diagnoses { margin-top:.65rem; padding:.7rem; border-left:4px solid var(--red-line); background:#fff7f5; }
+  .trap-grid, .recall-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+  .trap-card, .anki-card { border:1px solid var(--line); border-radius:6px; background:#fff; padding:.85rem; min-width:0; }
+  .trap-card { border-top:4px solid var(--red-line); }
+  .trap-card h3 { margin:0 0 .4rem; color:#843326; font-size:1rem; }
+  .anki-front { min-height:3.3rem; color:var(--navy); font-weight:800; }
+  .language-table { width:100%; border-collapse:collapse; background:#fff; font-size:.9rem; }
+  .language-table th, .language-table td { border:1px solid var(--line); padding:.65rem; text-align:left; vertical-align:top; }
+  .language-table th { background:#eaf2f9; color:var(--navy); }
+  .language-table .wrong { background:var(--red); }
+  .footer { margin-top:2rem; border-top:1px solid var(--line); padding-top:1rem; color:var(--muted); font-size:.85rem; }
+  .teacher-note-cn { border-left:4px solid #8b6bb4; background:#f3eef9; border-radius:0 6px 6px 0; padding:.65rem .75rem; margin:.65rem 0; }
+  @media (max-width:760px) {
+    .source-grid, .knowledge-grid, .trap-grid, .recall-grid, .route-grid { grid-template-columns:1fr; }
+    .contents { grid-template-columns:1fr 1fr; }
+    .method-map { grid-template-columns:1fr; }
+    .masthead { grid-template-columns:1fr; }
+    .review-number { width:max-content; min-width:0; }
+    .masthead h1 { font-size:1.9rem; }
+  }
+  @media (max-width:430px) {
+    main { padding-left:.75rem; padding-right:.75rem; }
+    .teacher-map { padding-left:.75rem; padding-right:.75rem; }
+    .contents { grid-template-columns:1fr; }
+    .knowledge-card, .trap-card, .anki-card { padding:.8rem; }
+    .section-heading h2 { font-size:1.3rem; }
+    .language-table { font-size:.78rem; }
+    .language-table th, .language-table td { padding:.45rem; }
+    .route-card, .demo-card, .passage-card { padding:.78rem; }
+    .option { grid-template-columns:1.65rem minmax(0,1fr); padding:.5rem; }
+  }
+  @media print {
+    @page { size:A4; margin:12mm; }
+    body { background:#fff; font-size:10pt; }
+    .topbar, .reveal-control { display:none !important; }
+    .teacher-map, main { max-width:none; padding:0; }
+    .reveal-panel[hidden] { display:block !important; }
+    .knowledge-card, .trap-card, .anki-card, .worked-model, .source-card, .route-card, .demo-card, .passage-card, tr { break-inside:avoid; }
+    .section { break-before:auto; }
+    .contents { display:none; }
+    a { color:inherit; text-decoration:none; }
+    .sat-vocab { background:#cfe7ff !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+  @media (forced-colors:active) {
+    .sat-vocab { border:1px solid CanvasText; background:Highlight; color:HighlightText; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="Handout controls">
+<a href="../" style="font-weight:800;text-decoration:none">← Class 01</a>
+<button class="print-button" type="button" onclick="window.print()">Save as PDF</button>
+</nav>
+<main>
+  <header class="masthead">
+<div>
+<p class="eyebrow">Approach Learning 1</p>
+<h1>Research and Science Texts</h1>
+<p class="subtitle">Evidence, inference, study design, and claim limits · Lillian</p>
+</div>
+<div class="review-number">Approach 1</div>
+</header>
+  <div class="notice">
+<strong>Core habit:</strong> Map the study before judging the answer. Preserve design, result, limit, and claim strength as separate fields.</div>
+  <nav class="contents" aria-label="Handout sections">
+    <a href="#map">1 · Research map</a>
+<a href="#results">2 · Results and limits</a>
+<a href="#sat-routes">3 · SAT routes</a>
+<a href="#language">4 · Claim language</a>
+<a href="#method">5 · Overall method</a>
+<a href="#demonstrations">6 · SAT demonstrations</a>
+<a href="#traps">7 · Trap library</a>
+<a href="#recall">8 · Recall card</a>
+  </nav>
+  <section class="section" id="map">
+    <div class="section-heading">
+<div class="section-number">1</div>
+<div>
+<p class="eyebrow">Research map</p>
+<h2>See the study before judging the claim</h2>
+<p>Research passages become manageable when each sentence has a study role.</p>
+</div>
+</div>
+    <div class="knowledge-grid">
+<article class="knowledge-card" data-point="1">
+    <h3>1. Research texts move through five study fields</h3>
+    <p class="rule">
+<strong>Rule.</strong> A research passage usually presents a question or hypothesis, a design, a result, an interpretation, and a limit. Not every passage states all five, but never merge their jobs.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>Researchers asked whether brief exposure to blue light affects seedling growth. They assigned seedlings to blue-light and white-light conditions, measured stem length after ten days, and found shorter stems in the blue-light group. The finding is consistent with an effect of light condition, although the study did not test mature plants.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> question → design → result → interpretation → limit</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-1" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-1" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>The first sentence states the research question. The second names assignment, comparison conditions, and the measured response. The third reports the group difference, interprets it cautiously, and limits the population.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>The researchers proved that blue light reduces growth in all plants.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-1" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-1" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> The statement converts one study result into universal proof and drops the seedling-only boundary.</li>
+<li>
+<strong>Repair:</strong> In this study, seedlings exposed to blue light developed shorter stems than seedlings exposed to white light.</li>
+<li>
+<strong>Portable rule:</strong> Keep each sentence in its study field; do not promote a result into a broader conclusion.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="2">
+    <h3>2. A hypothesis predicts a relationship; a result reports what occurred</h3>
+    <p class="rule">
+<strong>Rule.</strong> A hypothesis is a testable proposed relationship between variables. A prediction states the expected observable pattern if that hypothesis is correct. Neither is a result.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>The team hypothesized that warmer soil accelerates germination; therefore, it predicted that seeds kept at 24°C would germinate sooner than seeds kept at 18°C. The 24°C group germinated an average of 1.8 days sooner.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> hypothesis: warmer soil affects germination | prediction: 24°C sooner than 18°C | result: 1.8 days sooner</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-2" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-2" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>The hypothesis names the proposed relationship. The prediction translates it into a comparison that can be observed. The final sentence reports the measured outcome without yet explaining why it occurred.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>The hypothesis found that warmer seeds germinated 1.8 days sooner.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-2" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-2" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> A hypothesis cannot find a result; researchers test a hypothesis and observe a result.</li>
+<li>
+<strong>Repair:</strong> The result was consistent with the hypothesis: seeds at 24°C germinated 1.8 days sooner on average.</li>
+<li>
+<strong>Portable rule:</strong> Track who does each job: a hypothesis predicts; a method tests; a result reports.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="3">
+    <h3>3. Variables turn a broad topic into a testable design</h3>
+    <p class="rule">
+<strong>Rule.</strong> The explanatory variable is changed or compared; the response variable is measured; controlled variables are kept comparable; a <span class="sat-vocab">confounding</span> variable changes with the explanatory variable and offers another explanation.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>To compare two insulation materials, engineers wrapped identical containers with foam or wool and measured heat loss after thirty minutes. Container size, starting temperature, and room temperature were held constant.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> explanatory = insulation material | response = heat loss | controlled = size, start temperature, room temperature</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-3" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-3" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>Material is the factor compared. Heat loss is the outcome measured. The three controlled factors could otherwise change the outcome independently of material.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>Because the foam containers started 5°C warmer, material was the only explanation for their greater heat loss.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-3" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-3" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> Starting temperature changed with material, so it is a confound rather than a controlled variable.</li>
+<li>
+<strong>Repair:</strong> The greater heat loss may reflect insulation material, starting temperature, or both because the two factors changed together.</li>
+<li>
+<strong>Portable rule:</strong> Name X, Y, and every condition that could change Y before accepting a causal story.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="4">
+    <h3>4. A comparison group and a controlled variable are not the same thing</h3>
+    <p class="rule">
+<strong>Rule.</strong> A comparison or control group provides a baseline condition. A controlled variable is a feature kept comparable across groups. The word control can name either job, so identify the exact role.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>One set of plots received the new fertilizer, while untreated plots served as the comparison group. All plots received the same amount of water, making water amount a controlled variable.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> comparison group = untreated plots | controlled variable = water amount</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-4" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-4" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>The untreated plots show what happened without the treatment. Equal watering prevents water amount from becoming a competing explanation for a group difference.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>The untreated plots were controlled variables in the study.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-4" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-4" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> Plots are study units in a comparison condition; the held-constant feature is water amount.</li>
+<li>
+<strong>Repair:</strong> The untreated plots formed the control group, and water amount was controlled across both groups.</li>
+<li>
+<strong>Portable rule:</strong> Ask whether control names a baseline group or a protected condition.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="5">
+    <h3>5. Experiment and observation support different claim strengths</h3>
+    <p class="rule">
+<strong>Rule.</strong> An experiment deliberately assigns or manipulates a condition; an observational study measures naturally occurring differences. Strong manipulation and control make causation more defensible, while observation usually supports association.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>A survey found that commuters who cycled to work reported lower stress than commuters who drove. Because participants chose their own travel mode, the study identifies an association but does not isolate travel mode as the cause.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> observational comparison → association; causation not isolated</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-5" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-5" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>Travel mode was observed, not assigned. Work schedule, exercise habits, distance, or prior stress could differ between the groups and help explain the pattern.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>Cycling to work caused the surveyed commuters to experience less stress.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-5" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-5" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> The causal verb caused exceeds an observational design with self-selected groups.</li>
+<li>
+<strong>Repair:</strong> Among surveyed commuters, cycling to work was associated with lower reported stress.</li>
+<li>
+<strong>Portable rule:</strong> Match the claim verb to the design: associated with is weaker than caused.</li>
+</ul>
+</div>
+    
+  </article>
+</div>
+  </section>
+<section class="section" id="results">
+    <div class="section-heading">
+<div class="section-number">2</div>
+<div>
+<p class="eyebrow">Results and limits</p>
+<h2>Read the evidence without enlarging it</h2>
+<p>A strong SAT conclusion preserves the exact comparison, degree, population, and uncertainty.</p>
+</div>
+</div>
+    <div class="knowledge-grid">
+<article class="knowledge-card" data-point="6">
+    <h3>6. Randomization, replication, and sample size protect different claims</h3>
+    <p class="rule">
+<strong>Rule.</strong> Random assignment reduces systematic group differences; replication shows whether a pattern recurs across independent units or studies; sample size affects how much evidence a result contains. None removes every bias.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>The researchers randomly assigned 120 volunteers to two study conditions and repeated the procedure at three laboratories. The design reduces assignment bias and tests whether the pattern recurs across sites.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> random assignment → comparable groups | replication → recurring pattern | n = 120 → evidence amount</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-6" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-6" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>Random assignment protects the group comparison. Multiple laboratories test repeatability across sites. The sample size describes the number of volunteers but cannot by itself guarantee representativeness.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>Because the sample was large, the volunteers represented every adult population.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-6" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-6" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> A large sample can still come from a narrow or biased population.</li>
+<li>
+<strong>Repair:</strong> The sample provides substantial evidence about the recruited volunteers, but wider generalization depends on how they were selected.</li>
+<li>
+<strong>Portable rule:</strong> Do not use one design strength to erase a different design limit.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="7">
+    <h3>7. A result is a measured pattern; an interpretation explains its meaning</h3>
+    <p class="rule">
+<strong>Rule.</strong> Results report observations or numerical relationships. Interpretations connect those results to a hypothesis, mechanism, or larger claim. A result can be accurate even when more than one interpretation remains possible.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>Moths exposed to the odor located food 22% faster than unexposed moths. The researchers interpreted this difference as evidence that the odor helped the moths orient toward the food source.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> result = 22% faster | interpretation = odor aided orientation</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-7" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-7" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>The percentage is the measured comparison. The orientation explanation assigns meaning to that comparison and could be evaluated against alternative mechanisms.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>The 22% difference was the mechanism that guided the moths.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-7" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-7" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> A numerical result describes the pattern; it does not name the biological process producing it.</li>
+<li>
+<strong>Repair:</strong> The 22% difference was consistent with the proposed orientation mechanism.</li>
+<li>
+<strong>Portable rule:</strong> Separate what the data show from why researchers think the pattern occurred.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="8">
+    <h3>8. A quantitative claim needs a complete comparison sentence</h3>
+    <p class="rule">
+<strong>Rule.</strong> Preserve group, measure, comparison, direction, magnitude, unit, and condition. A true number can still fail if it answers the wrong comparison.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>After six weeks, treated plants averaged 18.4 cm in height, whereas untreated plants averaged 15.1 cm under the same greenhouse conditions; the treated group was 3.3 cm taller on average.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> treated vs untreated | mean height | +3.3 cm | after six weeks | same greenhouse conditions</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-8" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-8" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>The statement names both groups, the measured variable, the direction and magnitude of the difference, the unit, the time point, and the shared condition.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>The treatment increased plant growth by 18.4 cm.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-8" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-8" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> 18.4 cm is the treated group's final mean, not the increase and not the difference between groups.</li>
+<li>
+<strong>Repair:</strong> After six weeks, treated plants were 3.3 cm taller on average than untreated plants.</li>
+<li>
+<strong>Portable rule:</strong> Translate values into the exact comparison before interpreting them.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="9">
+    <h3>9. Correlation does not establish causation</h3>
+    <p class="rule">
+<strong>Rule.</strong> Correlation means two variables vary together. Causation requires evidence that changing one variable produces change in the other while plausible alternatives are controlled.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>Across twelve wetlands, sites with more aquatic plants also contained more frog species. The pattern may reflect habitat complexity, water quality, wetland size, or several factors together.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> plant abundance ↔ frog diversity association | causal factor unresolved</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-9" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-9" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>The two measures co-vary across sites, but the design does not isolate plant abundance. Multiple site characteristics could produce the same association.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>Increasing aquatic plants will necessarily create more frog species in any wetland.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-9" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-9" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> The statement converts association into intervention, may into will, and twelve sites into any wetland.</li>
+<li>
+<strong>Repair:</strong> In the twelve surveyed wetlands, greater aquatic-plant abundance was associated with greater frog-species diversity.</li>
+<li>
+<strong>Portable rule:</strong> Association travels with the observed population and conditions; it does not become a universal intervention rule.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="10">
+    <h3>10. Uncertainty and precision do not mean that a result is useless</h3>
+    <p class="rule">
+<strong>Rule.</strong> Measurement uncertainty states a defensible range around an estimate. Precision describes closeness among repeated measurements. Precise measurements can share a systematic offset, and uncertainty does not erase a measured pattern.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>A calibrated sensor estimated the sample's mass as 50.02 ± 0.05 g. Repeated readings clustered closely, but the reported range still preserves measurement uncertainty.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> estimate = 50.02 g | uncertainty = ±0.05 g | precision = close repeated readings</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-10" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-10" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>The estimate and range report what values are reasonably compatible with the measurement process. Close readings show precision; calibration helps address known instrument bias but cannot remove every source of uncertainty.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>Because the uncertainty was ±0.05 g, the researchers learned nothing about the sample's mass.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-10" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-10" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> A bounded uncertainty range is not complete ignorance and does not cancel the estimate.</li>
+<li>
+<strong>Repair:</strong> The measurement supports a mass near 50.02 g while acknowledging a ±0.05 g uncertainty range.</li>
+<li>
+<strong>Portable rule:</strong> Keep the estimate and its uncertainty together; neither should erase the other.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="11">
+    <h3>11. A limitation sets a claim ceiling</h3>
+    <p class="rule">
+<strong>Rule.</strong> A limitation identifies what the design cannot establish: causation, mechanism, population, condition, duration, or measurement precision. The conclusion must stay below that ceiling.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>The six-week study included only juvenile trees grown indoors. Its results may describe short-term responses under controlled indoor conditions, but they do not establish how mature trees respond over several years outdoors.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> population = juvenile trees | condition = indoors | duration = six weeks | claim ceiling = short-term indoor response</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-11" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-11" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>The population, setting, and duration each restrict generalization. The study may still provide useful evidence inside those boundaries.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>The study's limitations prove that its findings are false.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-11" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-11" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> A limit narrows a claim; it does not automatically reverse or invalidate the observed result.</li>
+<li>
+<strong>Repair:</strong> The findings apply most directly to juvenile trees over six weeks in the tested indoor conditions.</li>
+<li>
+<strong>Portable rule:</strong> Use limitations to resize a claim, not to discard evidence automatically.</li>
+</ul>
+</div>
+    
+  </article>
+</div>
+  </section>
+<section class="section" id="sat-routes">
+    <div class="section-heading">
+<div class="section-number">3</div>
+<div>
+<p class="eyebrow">Official SAT route map</p>
+<h2>Use the Study Map first; then switch to the exact question method</h2>
+<p>The domain map organizes the research. The question method controls the answer decision.</p>
+</div>
+</div>
+    <div class="route-grid">
+      <article class="route-card">
+<h3>Central Ideas and Details</h3>
+<div class="route-fields">
+<strong>Most useful Study Map fields:</strong> Question + Result + Limit + Claim.</div>
+<div class="route-method">
+<strong>SAT method: Topic + So-What.</strong>
+<ul>
+<li>Name the research topic.</li>
+<li>State the whole text's finding or claim.</li>
+<li>Check the beginning, main result, and ending limit.</li>
+<li>Reject topic-only, single-detail, and scope-shift choices.</li>
+</ul>
+</div>
+<p class="route-use">Pattern: the Study Map prevents one vivid result from replacing the whole passage.</p>
+</article>
+      <article class="route-card">
+<h3>Command of Evidence</h3>
+<div class="route-fields">
+<strong>Most useful Study Map fields:</strong> Design + Result + Claim.</div>
+<div class="route-method">
+<strong>SAT method: Claim-Direction-Evidence Lock.</strong>
+<ul>
+<li>Box the claim and evidence direction.</li>
+<li>Predict the variable, group, and comparison the evidence must show.</li>
+<li>For data, cite the exact cells before matching wording.</li>
+</ul>
+</div>
+<p class="route-use">Pattern: a true number is useful only if it performs the stated claim job.</p>
+</article>
+      <article class="route-card">
+<h3>Inferences</h3>
+<div class="route-fields">
+<strong>Most useful Study Map fields:</strong> Design + Result + Limit.</div>
+<div class="route-method">
+<strong>SAT method: Minimum Safe Inference.</strong>
+<ul>
+<li>List the explicit facts.</li>
+<li>Mark the design and its unresolved alternatives.</li>
+<li>Choose the strongest conclusion that adds no unsupported cause, population, or certainty.</li>
+</ul>
+</div>
+<p class="route-use">Pattern: the closest trap usually keeps the result but deletes one design limit.</p>
+</article>
+      <article class="route-card">
+<h3>Words in Context</h3>
+<div class="route-fields">
+<strong>Most useful Study Map fields:</strong> local Result + Limit + Claim degree.</div>
+<div class="route-method">
+<strong>SAT method: Context-Meaning Lock.</strong>
+<ul>
+<li>Mark the sentence's logical job.</li>
+<li>Predict a plain local meaning.</li>
+<li>Test exact meaning, degree, and grammar in the original sentence.</li>
+</ul>
+</div>
+<p class="route-use">Pattern: scientific verbs often differ more in strength than in positive or negative direction.</p>
+</article>
+      <article class="route-card">
+<h3>Text Structure and Purpose</h3>
+<div class="route-fields">
+<strong>Most useful Study Map fields:</strong> every field and the move between fields.</div>
+<div class="route-method">
+<strong>SAT method: Content-to-Job Map.</strong>
+<ul>
+<li>Paraphrase the target sentence.</li>
+<li>Map the line before, target line, and line after.</li>
+<li>Name the action, target, and scope.</li>
+</ul>
+</div>
+<p class="route-use">Pattern: a sentence can report a new study while functioning to qualify an earlier claim.</p>
+</article>
+      <article class="route-card">
+<h3>Cross-Text Connections</h3>
+<div class="route-fields">
+<strong>Most useful Study Map fields:</strong> a separate Question/Design/Result/Limit/Claim map for each text.</div>
+<div class="route-method">
+<strong>SAT method: Two-Column Claim Map + Response + Reason Predictor.</strong>
+<ul>
+<li>Map each researcher's claim, reason, and limit separately.</li>
+<li>Box the exact target claim.</li>
+<li>Predict the responder's polarity, reason, and boundary.</li>
+</ul>
+</div>
+<p class="route-use">Pattern: two researchers may agree on the result but disagree about what the design can establish.</p>
+</article>
+    </div>
+    <div class="knowledge-grid">
+<article class="knowledge-card" data-point="12">
+    <h3>12. Command of Evidence asks whether evidence performs the exact claim job</h3>
+    <p class="rule">
+<strong>Rule.</strong> Lock the claim, evidence direction, variables, population, and condition. Evidence that is relevant to the topic can still fail to illustrate, support, or undermine the stated claim.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>Claim: urban noise reduces birds' ability to detect alarm calls. Direct support would show poorer alarm-call detection under greater urban noise while preserving the same birds, call type, and comparison conditions.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> claim + support direction + same variables + same population + matched condition</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-12" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-12" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>Useful evidence must test noise level against alarm-call detection. A finding about song volume, migration, or a different species may be interesting but does not perform the requested support job.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>Birds in noisy cities sang at higher frequencies, so the finding directly supports reduced alarm-call detection.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-12" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-12" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> The topic matches, but the measured outcome changes from detection to song frequency.</li>
+<li>
+<strong>Repair:</strong> Birds detected fewer alarm calls during high-noise trials than during otherwise matched low-noise trials.</li>
+<li>
+<strong>Portable rule:</strong> Relevant is not enough; the evidence must move the exact claim in the requested direction.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="13">
+    <h3>13. Inferences require the minimum safe conclusion</h3>
+    <p class="rule">
+<strong>Rule.</strong> Combine the stated facts, preserve every limit, and choose the strongest conclusion that adds no unsupported cause, population, mechanism, or certainty.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>In a field survey, shaded ponds had lower water temperatures and more salamander larvae than unshaded ponds. The evidence supports an association among shade, temperature, and larval abundance in the surveyed ponds; it does not isolate which factor caused the difference.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> facts + observed relationship + population/condition + cautious modality</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-13" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-13" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>The minimum conclusion keeps the three observed variables and the surveyed-pond scope. It does not select shade or temperature as the cause without experimental control.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>Adding shade will increase salamander populations in every pond.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-13" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-13" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> The statement adds an intervention, a causal direction, a long-term population outcome, and a universal scope.</li>
+<li>
+<strong>Repair:</strong> In the surveyed ponds, shaded conditions were associated with cooler water and greater larval abundance.</li>
+<li>
+<strong>Portable rule:</strong> Every extra noun, cause, time frame, and certainty word needs evidence.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="14">
+    <h3>14. Text Structure and Purpose asks what a research stage does</h3>
+    <p class="rule">
+<strong>Rule.</strong> Content tells what a sentence says; function tells what it does. In research texts, common jobs include introduce a question, describe a method, report a result, qualify an interpretation, or identify a limitation.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>Previous surveys linked canopy loss with declining insect diversity. However, those surveys measured only one season. This limitation sentence qualifies the earlier evidence by narrowing its time scope.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> qualify + earlier evidence + one-season time limit</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-14" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-14" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>The target sentence does not reject the surveys or present a new result. It changes how broadly the earlier association may be interpreted.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>The sentence summarizes the surveys' finding that insect diversity declined.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-14" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-14" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> The content is about one-season measurement, and its job is to qualify the prior evidence, not restate the decline.</li>
+<li>
+<strong>Repair:</strong> The sentence qualifies the earlier association by identifying a limitation in study duration.</li>
+<li>
+<strong>Portable rule:</strong> Name an action and its target: qualify what, support what, contrast what, or explain what.</li>
+</ul>
+</div>
+    
+  </article>
+<article class="knowledge-card" data-point="15">
+    <h3>15. Words in Context preserves scientific tone and degree</h3>
+    <p class="rule">
+<strong>Rule.</strong> Use the surrounding logic to recover denotation, tone, degree, and grammatical role. Research verbs and qualifiers such as suggests, <span class="sat-vocab">corroborates</span>, accounts for, and qualifies are not interchangeable.</p>
+    <div class="demo">
+<span class="label">Worked field model</span>A second laboratory obtained the same pattern, thereby corroborating the original finding. Here, corroborating means providing independent support, not proving the explanation beyond doubt.</div>
+    <div class="answer-like">
+<strong>Field map:</strong> corroborating = independently supporting | positive evidence | not absolute proof</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="analysis-15" data-show="Reveal sentence analysis" data-hide="Hide explanation">Reveal sentence analysis</button>
+<div class="reveal-panel" id="analysis-15" hidden>
+<div class="note">
+<span class="label">Sentence analysis</span>The second laboratory repeats the pattern, so the context requires a support meaning. The sentence does not establish that every proposed mechanism is correct.</div>
+</div>
+    <div class="trap">
+<span class="label">Mistake</span>Corroborating means permanently proving every part of the original hypothesis.</div>
+    <button class="reveal-control" type="button" aria-expanded="false" aria-controls="repair-15" data-show="Reveal failure and repair" data-hide="Hide explanation">Reveal failure and repair</button>
+<div class="reveal-panel" id="repair-15" hidden>
+<ul>
+<li>
+<strong>Failure:</strong> The definition is too absolute and enlarges a repeated pattern into total proof.</li>
+<li>
+<strong>Repair:</strong> The second result corroborates, or independently supports, the original finding.</li>
+<li>
+<strong>Portable rule:</strong> Scientific vocabulary often controls claim strength; preserve degree as carefully as topic.</li>
+</ul>
+</div>
+    
+  </article>
+</div>
+  </section>
+  <section class="section" id="language">
+    <div class="section-heading">
+<div class="section-number">4</div>
+<div>
+<p class="eyebrow">Claim language</p>
+<h2>Use verbs that match the evidence</h2>
+<p>Scientific wording controls how much the sentence claims.</p>
+</div>
+</div>
+    <table class="language-table">
+      <thead>
+<tr>
+<th>Language job</th>
+<th>Complete legal sentence</th>
+<th>Closest illegal overclaim</th>
+</tr>
+</thead>
+      <tbody>
+        <tr>
+<td>
+<strong>reports</strong>
+<br>states a result</td>
+<td>The study reports that treated plants were 3.3 cm taller on average.</td>
+<td class="wrong">The study reports why the treatment produced every observed difference.</td>
+</tr>
+        <tr>
+<td>
+<strong>suggests</strong>
+<br>supports cautiously</td>
+<td>The pattern suggests that light condition may affect early stem growth.</td>
+<td class="wrong">The pattern suggests with certainty that light controls all plant growth.</td>
+</tr>
+        <tr>
+<td>
+<strong>is consistent with</strong>
+<br>fits but does not isolate</td>
+<td>The result is consistent with the proposed orientation mechanism.</td>
+<td class="wrong">The result is consistent with the mechanism, so no alternative explanation remains.</td>
+</tr>
+        <tr>
+<td>
+<strong>corroborates</strong>
+<br>adds independent support</td>
+<td>A second laboratory corroborated the original finding by obtaining the same pattern.</td>
+<td class="wrong">A second laboratory corroborated every possible explanation of the pattern.</td>
+</tr>
+        <tr>
+<td>
+<strong>qualifies</strong>
+<br>narrows a claim</td>
+<td>The one-season design qualifies the conclusion by limiting its time scope.</td>
+<td class="wrong">The one-season design qualifies the result as false.</td>
+</tr>
+        <tr>
+<td>
+<strong>demonstrates</strong>
+<br>shows strongly within tested bounds</td>
+<td>The controlled trial demonstrates a difference between the two tested conditions.</td>
+<td class="wrong">The controlled trial demonstrates that the treatment works for all populations and conditions.</td>
+</tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="section" id="method">
+    <div class="section-heading">
+<div class="section-number">5</div>
+<div>
+<p class="eyebrow">Overall method</p>
+<h2>Study Map: Question · Design · Result · Limit · Claim</h2>
+<p>Complete these five fields before judging an answer about a research passage.</p>
+</div>
+</div>
+    <div class="method-map">
+      <div class="method-step">
+<strong>1 · Question</strong>What relationship is being tested?</div>
+      <div class="method-step">
+<strong>2 · Design</strong>What is compared, controlled, assigned, or observed?</div>
+      <div class="method-step">
+<strong>3 · Result</strong>What exact pattern occurred?</div>
+      <div class="method-step">
+<strong>4 · Limit</strong>What remains untested or uncertain?</div>
+      <div class="method-step">
+<strong>5 · Claim</strong>What is the strongest safe conclusion?</div>
+    </div>
+    <article class="worked-model">
+      <h3>Full Study Map model</h3>
+      <div class="strategy-trained">
+<strong>Pattern to notice:</strong> complete all five fields before reading answer choices; the limit controls the final claim strength.</div>
+      <p>Researchers randomly assigned greenhouse ferns to mineral-fertilizer or organic-fertilizer conditions. All ferns received equal water and light. After four weeks, the mineral-fertilizer group produced 14% more leaf area on average. Because the study tested one species in greenhouse conditions for four weeks, longer-term outdoor effects remain unknown.</p>
+      <div class="answer-like">
+<strong>Field map:</strong> randomized comparison + matched water/light → +14% leaf area at four weeks → one species/greenhouse/time limit → cautious tested-condition claim</div>
+      <button class="reveal-control" type="button" aria-expanded="false" aria-controls="method-trace" data-show="Reveal full method trace" data-hide="Hide explanation">Reveal full method trace</button>
+<div class="reveal-panel" id="method-trace" hidden>
+<div class="note">
+<span class="label">Resolved method trace</span>
+    <p>
+<strong>Question:</strong> Does fertilizer type affect leaf growth?</p>
+    <p>
+<strong>Design:</strong> Ferns were randomly assigned to mineral or organic fertilizer; water and light were held constant.</p>
+    <p>
+<strong>Result:</strong> The mineral group produced 14% more leaf area after four weeks.</p>
+    <p>
+<strong>Limit:</strong> One fern species, greenhouse conditions, four weeks.</p>
+    <p>
+<strong>Claim:</strong> For the tested ferns and conditions, mineral fertilizer was associated with greater four-week leaf growth; broader or longer effects remain untested.</p>
+  </div>
+</div>
+    </article>
+  </section>
+  <section class="section" id="demonstrations">
+    <div class="section-heading">
+<div class="section-number">6</div>
+<div>
+<p class="eyebrow">Resolved complete-context demonstrations</p>
+<h2>One research map, six different SAT decisions</h2>
+<p>Each model gives you a different classroom move: the passage stays stable, but the question job and trap change.</p>
+</div>
+</div>
+    <article class="passage-card" id="oyster-study">
+      <span class="label">Complete passage and data · experimental recovery study</span>
+      <p>Marine ecologist Alina Serrano and her colleagues investigated how quickly juvenile Olympia oysters resume feeding after a short low-oxygen event. The team randomly assigned 96 hatchery-raised juveniles to either two hours of low-oxygen water or two hours of normal-oxygen water. After all oysters were returned to normal oxygen, the researchers measured filtration rate 10 minutes and 60 minutes later.</p>
+      <table class="study-table">
+<caption>Mean filtration rate (milliliters per minute)</caption>
+<thead>
+<tr>
+<th scope="col">Condition</th>
+<th scope="col">10 minutes</th>
+<th scope="col">60 minutes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Normal oxygen</th>
+<td>5.2</td>
+<td>5.4</td>
+</tr>
+<tr>
+<th scope="row">Low oxygen</th>
+<td>2.9</td>
+<td>5.1</td>
+</tr>
+</tbody>
+</table>
+      <p>Serrano's team concluded that the short low-oxygen exposure temporarily reduced feeding in these juveniles but that their average filtration rate nearly recovered within an hour. The study did not test survival or the biological mechanism of recovery. Later, a second laboratory used adult oysters from a different coastal population under the same oxygen conditions and found that the low-oxygen group still filtered 28% less than its control group after 60 minutes. That later result <em>tempered</em> any broad claim that rapid recovery occurs across oyster ages and populations. Because age and source population changed together between studies, however, the comparison did not identify which factor accounted for the different recovery pattern.</p>
+      <div class="worked-model">
+<strong>Study Map:</strong> Question = recovery after short low oxygen · Design = randomized juvenile experiment, followed by a second study with adults from another population · Result = juvenile gap shrank from 2.3 to 0.3 mL/min; adult gap remained 28% · Limit = survival and mechanism untested; age and population confounded across studies · Claim = rapid recovery occurred in the tested juveniles but should not be generalized across ages or populations.</div>
+    </article>
+    <div class="demo-stack">
+      <article class="demo-card">
+        <h3>Demonstration 1 · Central Ideas and Details</h3>
+        <div class="job-line">
+<span class="pill">Question job: whole-text central idea</span>
+<span class="pill">Controlling fields: Result + Limit + Claim</span>
+</div>
+        <div class="strategy-trained">
+<strong>Strategy trained:</strong> use the ending limit to stop one strong result from becoming the whole main idea.</div>
+        <div class="cue-map">
+<strong>Cue map:</strong> juvenile randomized result → near recovery → adult/population contrast → unresolved age-versus-population limit.</div>
+        <p class="prompt">Which choice best states the main idea of the passage?</p>
+        <div class="options">
+<div class="option">
+<strong>A</strong>
+<span>Short low-oxygen events permanently reduce feeding in oysters of all ages and populations.</span>
+</div>
+<div class="option">
+<strong>B</strong>
+<span>A randomized juvenile study found near recovery after a temporary feeding disruption, but a different result in adults from another population limits broader generalization without isolating the reason for the difference.</span>
+</div>
+<div class="option">
+<strong>C</strong>
+<span>Serrano's team determined the biological mechanism that allows juvenile oysters to survive low-oxygen events.</span>
+</div>
+<div class="option">
+<strong>D</strong>
+<span>The second laboratory reproduced the juveniles' recovery pattern and thereby confirmed that age and population do not affect feeding recovery.</span>
+</div>
+</div>
+        <button class="reveal-control" type="button" aria-expanded="false" aria-controls="demo-1-resolution" data-show="Reveal resolved decision" data-hide="Hide resolved decision">Reveal resolved decision</button>
+        <div class="reveal-panel" id="demo-1-resolution" hidden>
+<div class="resolution">
+<span class="label">Resolved decision</span>
+<p class="resolved-choice">Choice B</p>
+<div class="method-trace-demo">
+<strong>Topic + So-What:</strong> Topic = oyster feeding recovery after low oxygen. So-what = tested juveniles nearly recovered, but the later adult/population result narrows the claim. Whole-text scope = preserve both findings and the unresolved cross-study confound.</div>
+<div class="diagnoses">
+<strong>Closest trap: D.</strong>
+<ul>
+<li>
+<strong>A:</strong> changes temporary to permanent and tested groups to all oysters; time and population scope fail.</li>
+<li>
+<strong>B:</strong> preserves the result, contrast, and unresolved limit.</li>
+<li>
+<strong>C:</strong> claims a mechanism and survival finding the study explicitly did not test.</li>
+<li>
+<strong>D:</strong> recognizes replication language but reverses the second result and erases the age/population limit.</li>
+</ul>
+<strong>Portable pattern:</strong> a central idea must include the passage's important turn, not just the first result.</div>
+</div>
+</div>
+      </article>
+      <article class="demo-card">
+        <h3>Demonstration 2 · Command of Evidence</h3>
+        <div class="job-line">
+<span class="pill">Question job: match a claim to data</span>
+<span class="pill">Controlling fields: Group + measure + comparison + magnitude</span>
+</div>
+        <div class="strategy-trained">
+<strong>Strategy trained:</strong> label the two group gaps before choosing; a true change within one group may still be incomplete evidence.</div>
+        <div class="cue-map">
+<strong>Cue map:</strong> test the claim that the juvenile low-oxygen group recovered most, but not all, of its initial filtration-rate gap.</div>
+        <p class="prompt">Which choice most effectively uses data from the table to support that claim?</p>
+        <div class="options">
+<div class="option">
+<strong>A</strong>
+<span>The normal-oxygen group's mean filtration rate rose from 5.2 to 5.4 mL/min.</span>
+</div>
+<div class="option">
+<strong>B</strong>
+<span>The low-oxygen group's mean filtration rate increased by 2.2 mL/min between 10 and 60 minutes.</span>
+</div>
+<div class="option">
+<strong>C</strong>
+<span>At 10 minutes, the low-oxygen group's mean was 2.3 mL/min below the normal-oxygen group's mean.</span>
+</div>
+<div class="option">
+<strong>D</strong>
+<span>The low-oxygen group's deficit relative to the normal-oxygen group narrowed from 2.3 mL/min at 10 minutes to 0.3 mL/min at 60 minutes.</span>
+</div>
+</div>
+        <button class="reveal-control" type="button" aria-expanded="false" aria-controls="demo-2-resolution" data-show="Reveal resolved decision" data-hide="Hide resolved decision">Reveal resolved decision</button>
+        <div class="reveal-panel" id="demo-2-resolution" hidden>
+<div class="resolution">
+<span class="label">Resolved decision</span>
+<p class="resolved-choice">Choice D</p>
+<div class="method-trace-demo">
+<strong>Claim-to-Cells Map:</strong> Claim = most of the gap disappeared, but a smaller gap remained. Required cells = both groups at both times. Comparisons = 5.2−2.9 = 2.3 and 5.4−5.1 = 0.3. D states both the narrowing and the remaining difference.</div>
+<div class="diagnoses">
+<strong>Closest trap: B.</strong>
+<ul>
+<li>
+<strong>A:</strong> is true but describes only the control group; claim-variable match fails.</li>
+<li>
+<strong>B:</strong> shows recovery within the low-oxygen group but does not prove how much of the between-group gap remained.</li>
+<li>
+<strong>C:</strong> gives the initial gap only; time comparison is incomplete.</li>
+<li>
+<strong>D:</strong> matches groups, measure, both times, direction, and magnitude.</li>
+</ul>
+<strong>Portable pattern:</strong> when a claim contains both change and comparison, the evidence must contain both.</div>
+</div>
+</div>
+      </article>
+      <article class="demo-card">
+        <h3>Demonstration 3 · Inferences</h3>
+        <div class="job-line">
+<span class="pill">Question job: minimum safe conclusion</span>
+<span class="pill">Controlling fields: Design + cross-study limit</span>
+</div>
+        <div class="strategy-trained">
+<strong>Strategy trained:</strong> notice when two variables change together; the result may challenge a broad claim without identifying the cause of the difference.</div>
+        <div class="cue-map">
+<strong>Cue map:</strong> second study changed oyster age and source population at the same time.</div>
+        <p class="prompt">Which conclusion is most strongly supported by the passage?</p>
+        <div class="options">
+<div class="option">
+<strong>A</strong>
+<span>Adult age alone caused the slower recovery observed by the second laboratory.</span>
+</div>
+<div class="option">
+<strong>B</strong>
+<span>The second laboratory's finding invalidates the filtration measurements from the juvenile experiment.</span>
+</div>
+<div class="option">
+<strong>C</strong>
+<span>The rapid recovery observed in the tested juveniles may not extend to other ages or populations, and the available comparison cannot separate those two possible influences.</span>
+</div>
+<div class="option">
+<strong>D</strong>
+<span>Juveniles from the second coastal population would necessarily show the same recovery pattern as Serrano's hatchery juveniles.</span>
+</div>
+</div>
+        <button class="reveal-control" type="button" aria-expanded="false" aria-controls="demo-3-resolution" data-show="Reveal resolved decision" data-hide="Hide resolved decision">Reveal resolved decision</button>
+        <div class="reveal-panel" id="demo-3-resolution" hidden>
+<div class="resolution">
+<span class="label">Resolved decision</span>
+<p class="resolved-choice">Choice C</p>
+<div class="method-trace-demo">
+<strong>Minimum Safe Inference:</strong> Facts = different recovery result + adults + different population. Limit = age and population changed together. Minimum conclusion = broad recovery claim is uncertain; causal attribution to either factor remains unresolved.</div>
+<div class="diagnoses">
+<strong>Closest trap: A.</strong>
+<ul>
+<li>
+<strong>A:</strong> keeps the observed difference but promotes one confounded factor into the isolated cause.</li>
+<li>
+<strong>B:</strong> treats a generalization limit as if it erased the original measured result.</li>
+<li>
+<strong>C:</strong> preserves cautious modality, populations, and the unresolved comparison.</li>
+<li>
+<strong>D:</strong> predicts an untested group with certainty.</li>
+</ul>
+<strong>Portable pattern:</strong> a conflicting result can lower claim scope without proving why the studies differ.</div>
+</div>
+</div>
+      </article>
+      <article class="demo-card">
+        <h3>Demonstration 4 · Words in Context</h3>
+        <div class="job-line">
+<span class="pill">Question job: exact local sense</span>
+<span class="pill">Controlling fields: later result + broad claim degree</span>
+</div>
+        <div class="strategy-trained">
+<strong>Strategy trained:</strong> distinguish qualification from total contradiction when a scientific verb controls claim strength.</div>
+        <div class="cue-map">
+<strong>Cue map:</strong> the adult result narrows a broad claim but does not erase the juvenile data.</div>
+        <p class="prompt">As used in the passage, <em>tempered</em> most nearly means</p>
+        <div class="options">
+<div class="option">
+<strong>A</strong>
+<span>qualified by reducing the scope or certainty of.</span>
+</div>
+<div class="option">
+<strong>B</strong>
+<span>measured the physical temperature of.</span>
+</div>
+<div class="option">
+<strong>C</strong>
+<span>repeated with greater precision.</span>
+</div>
+<div class="option">
+<strong>D</strong>
+<span>disproved every part of.</span>
+</div>
+</div>
+        <button class="reveal-control" type="button" aria-expanded="false" aria-controls="demo-4-resolution" data-show="Reveal resolved decision" data-hide="Hide resolved decision">Reveal resolved decision</button>
+        <div class="reveal-panel" id="demo-4-resolution" hidden>
+<div class="resolution">
+<span class="label">Resolved decision</span>
+<p class="resolved-choice">Choice A</p>
+<div class="method-trace-demo">
+<strong>Local-Sense Substitution:</strong> Plain phrase = made the general claim less broad. Substitution check = the later result qualified the claim across ages and populations. The original juvenile result remains intact.</div>
+<div class="diagnoses">
+<strong>Closest trap: D.</strong>
+<ul>
+<li>
+<strong>A:</strong> preserves the sentence's limiting job and degree.</li>
+<li>
+<strong>B:</strong> uses a familiar physical meaning that does not fit the claim relationship.</li>
+<li>
+<strong>C:</strong> confuses qualification with replication quality.</li>
+<li>
+<strong>D:</strong> gets the negative direction but makes the effect absolute.</li>
+</ul>
+<strong>Portable pattern:</strong> matching positive or negative direction is not enough; lock the exact degree.</div>
+</div>
+</div>
+      </article>
+      <article class="demo-card">
+        <h3>Demonstration 5 · Text Structure and Purpose</h3>
+        <div class="job-line">
+<span class="pill">Question job: sentence function</span>
+<span class="pill">Controlling fields: first Claim → second Result → new Limit</span>
+</div>
+        <div class="strategy-trained">
+<strong>Strategy trained:</strong> translate a sentence's content into its job in the research argument.</div>
+        <div class="cue-map">
+<strong>Cue map:</strong> compare the juvenile conclusion before the target sentence with the broader claim after it.</div>
+        <p class="prompt">Which choice best describes the function of the sentence beginning “Later, a second laboratory” in the passage?</p>
+        <div class="options">
+<div class="option">
+<strong>A</strong>
+<span>It identifies the biological mechanism responsible for reduced feeding under low oxygen.</span>
+</div>
+<div class="option">
+<strong>B</strong>
+<span>It restates Serrano's juvenile result using a larger sample from the same population.</span>
+</div>
+<div class="option">
+<strong>C</strong>
+<span>It introduces the original research question before the experimental design is described.</span>
+</div>
+<div class="option">
+<strong>D</strong>
+<span>It presents a contrasting replication that motivates a narrower recovery claim while creating an age-versus-population interpretive limit.</span>
+</div>
+</div>
+        <button class="reveal-control" type="button" aria-expanded="false" aria-controls="demo-5-resolution" data-show="Reveal resolved decision" data-hide="Hide resolved decision">Reveal resolved decision</button>
+        <div class="reveal-panel" id="demo-5-resolution" hidden>
+<div class="resolution">
+<span class="label">Resolved decision</span>
+<p class="resolved-choice">Choice D</p>
+<div class="method-trace-demo">
+<strong>Three-Line Function Map:</strong> Before = juvenile near-recovery conclusion. Target = different result in adults from another population. After = broad claim is tempered, but cause of study difference remains unresolved. Function = qualify the earlier claim through contrasting replication.</div>
+<div class="diagnoses">
+<strong>Closest trap: B.</strong>
+<ul>
+<li>
+<strong>A:</strong> invents a tested mechanism.</li>
+<li>
+<strong>B:</strong> recognizes a second study but reverses its population and result.</li>
+<li>
+<strong>C:</strong> assigns the sentence a job that occurred at the passage's beginning.</li>
+<li>
+<strong>D:</strong> names the action, target, and exact scope consequence.</li>
+</ul>
+<strong>Portable pattern:</strong> “new study” is content; “qualifies the earlier claim” is function.</div>
+</div>
+</div>
+      </article>
+    </div>
+    <article class="passage-card" id="oyster-pair" style="margin-top:1rem">
+      <span class="label">Complete paired passage · interpreting cross-study evidence</span>
+      <p>
+<strong>Text 1:</strong> Researcher Nia Ruan argues that the second laboratory's adult-oyster result indicates that life stage is an important determinant of feeding recovery after low oxygen. Ruan notes that adult and juvenile oysters differ in energy allocation and says the age difference is the most biologically plausible explanation for the contrasting results.</p>
+      <p>
+<strong>Text 2:</strong> Statistician Elias Kim agrees that the second result makes a universal rapid-recovery claim untenable. Kim argues, however, that Ruan's attribution to life stage exceeds the comparison: the second study changed both age and source population. Kim proposes testing juveniles and adults from both populations under the same protocol.</p>
+      <div class="worked-model">
+<strong>Two maps:</strong> Text 1 = different result + life-stage explanation + biological plausibility. Text 2 = agrees broad claim must narrow + rejects isolated age attribution + crossed age-by-population design. Relationship = agreement on the scope limit, disagreement on what explains it.</div>
+    </article>
+    <article class="demo-card">
+      <h3>Demonstration 6 · Cross-Text Connections</h3>
+      <div class="job-line">
+<span class="pill">Question job: predict Text 2's response</span>
+<span class="pill">Controlling fields: Target + polarity + reason + boundary</span>
+</div>
+      <div class="strategy-trained">
+<strong>Strategy trained:</strong> separate agreement about a result from disagreement about the causal explanation.</div>
+      <div class="cue-map">
+<strong>Cue map:</strong> target Ruan's life-stage attribution, not the shared view that the broad recovery claim must narrow.</div>
+      <p class="prompt">Based on the texts, how would Kim in Text 2 most likely respond to Ruan's claim in Text 1?</p>
+      <div class="options">
+<div class="option">
+<strong>A</strong>
+<span>He would agree that the studies establish age as the cause because the adult group recovered more slowly.</span>
+</div>
+<div class="option">
+<strong>B</strong>
+<span>He would reject the adult-oyster result as irrelevant because it did not reproduce Serrano's juvenile finding.</span>
+</div>
+<div class="option">
+<strong>C</strong>
+<span>He would agree that the result limits a broad recovery claim but argue that assigning the difference to age alone exceeds a comparison in which population also changed.</span>
+</div>
+<div class="option">
+<strong>D</strong>
+<span>He would argue that additional testing is useful even though the existing comparison already rules out population as an explanation.</span>
+</div>
+</div>
+      <button class="reveal-control" type="button" aria-expanded="false" aria-controls="demo-6-resolution" data-show="Reveal resolved decision" data-hide="Hide resolved decision">Reveal resolved decision</button>
+      <div class="reveal-panel" id="demo-6-resolution" hidden>
+<div class="resolution">
+<span class="label">Resolved decision</span>
+<p class="resolved-choice">Choice C</p>
+<div class="method-trace-demo">
+<strong>Response + Reason Predictor:</strong> Target = age explains the different result. Kim's polarity = qualify/disagree with attribution. Reason = age and population changed together. Boundary = he still agrees the broad rapid-recovery claim is unsupported.</div>
+<div class="diagnoses">
+<strong>Closest trap: D.</strong>
+<ul>
+<li>
+<strong>A:</strong> matches the observed direction but ignores Kim's confound objection.</li>
+<li>
+<strong>B:</strong> reverses Kim's use of the result to limit the broad claim.</li>
+<li>
+<strong>C:</strong> matches target, polarity, reason, and shared boundary.</li>
+<li>
+<strong>D:</strong> mentions more testing but contradicts the reason Kim says it is needed.</li>
+</ul>
+<strong>Portable pattern:</strong> predict both the response and the reason; polarity alone cannot distinguish C from a close trap.</div>
+</div>
+</div>
+    </article>
+  </section>
+  <section class="section" id="traps">
+    <div class="section-heading">
+<div class="section-number">7</div>
+<div>
+<p class="eyebrow">Trap library</p>
+<h2>High-frequency research-text traps</h2>
+<p>Each trap corrupts one exact field in the Study Map.</p>
+</div>
+</div>
+    <div class="trap-grid">
+<article class="trap-card">
+<h3>Study-field swap</h3>
+<div class="trap">
+<span class="label">Mistake</span>The method concluded that the treatment was effective.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="trap-1" data-show="Reveal why and repair" data-hide="Hide explanation">Reveal why and repair</button>
+<div class="reveal-panel" id="trap-1" hidden>
+<ul>
+<li>
+<strong>Failed field:</strong> A method describes what researchers did; it does not itself conclude.</li>
+<li>
+<strong>Repair:</strong> Using the stated method, the researchers found that the treated group improved more than the comparison group.</li>
+<li>
+<strong>Portable rule:</strong> Keep method, result, and conclusion in separate roles.</li>
+</ul>
+</div>
+</article>
+<article class="trap-card">
+<h3>Topic-match trap</h3>
+<div class="trap">
+<span class="label">Mistake</span>A finding about bird song supports a claim about alarm-call detection because both involve sound.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="trap-2" data-show="Reveal why and repair" data-hide="Hide explanation">Reveal why and repair</button>
+<div class="reveal-panel" id="trap-2" hidden>
+<ul>
+<li>
+<strong>Failed field:</strong> The topic overlaps, but the measured outcome does not match the claim.</li>
+<li>
+<strong>Repair:</strong> Support must compare noise level with alarm-call detection under matched conditions.</li>
+<li>
+<strong>Portable rule:</strong> Match variables and evidence job, not topic words.</li>
+</ul>
+</div>
+</article>
+<article class="trap-card">
+<h3>Association-to-cause trap</h3>
+<div class="trap">
+<span class="label">Mistake</span>Older walls caused more lichen because older walls had more lichen.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="trap-3" data-show="Reveal why and repair" data-hide="Hide explanation">Reveal why and repair</button>
+<div class="reveal-panel" id="trap-3" hidden>
+<ul>
+<li>
+<strong>Failed field:</strong> The repeated wording reports an association but supplies no causal control.</li>
+<li>
+<strong>Repair:</strong> Wall age was associated with lichen abundance in the surveyed walls.</li>
+<li>
+<strong>Portable rule:</strong> A correlation cannot supply its own causal explanation.</li>
+</ul>
+</div>
+</article>
+<article class="trap-card">
+<h3>Sample-to-population trap</h3>
+<div class="trap">
+<span class="label">Mistake</span>Results from 40 coastal trees apply to every tree species in every climate.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="trap-4" data-show="Reveal why and repair" data-hide="Hide explanation">Reveal why and repair</button>
+<div class="reveal-panel" id="trap-4" hidden>
+<ul>
+<li>
+<strong>Failed field:</strong> The claim drops species, location, climate, and sample boundaries.</li>
+<li>
+<strong>Repair:</strong> The findings apply most directly to the 40 coastal trees studied under the tested conditions.</li>
+<li>
+<strong>Portable rule:</strong> Carry population and condition into the conclusion.</li>
+</ul>
+</div>
+</article>
+<article class="trap-card">
+<h3>Result-to-mechanism trap</h3>
+<div class="trap">
+<span class="label">Mistake</span>A faster response time proves which neural process produced the response.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="trap-5" data-show="Reveal why and repair" data-hide="Hide explanation">Reveal why and repair</button>
+<div class="reveal-panel" id="trap-5" hidden>
+<ul>
+<li>
+<strong>Failed field:</strong> The measured outcome does not identify the internal mechanism unless the design tested it.</li>
+<li>
+<strong>Repair:</strong> The faster response is consistent with the proposed process but does not isolate it.</li>
+<li>
+<strong>Portable rule:</strong> Outcome and mechanism are different fields.</li>
+</ul>
+</div>
+</article>
+<article class="trap-card">
+<h3>Uncertainty-erases-result trap</h3>
+<div class="trap">
+<span class="label">Mistake</span>Because an estimate has a range, no conclusion can be drawn.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="trap-6" data-show="Reveal why and repair" data-hide="Hide explanation">Reveal why and repair</button>
+<div class="reveal-panel" id="trap-6" hidden>
+<ul>
+<li>
+<strong>Failed field:</strong> A bounded range expresses what is known and unknown; it does not delete the estimate.</li>
+<li>
+<strong>Repair:</strong> State the estimate together with its uncertainty and keep the conclusion within that range.</li>
+<li>
+<strong>Portable rule:</strong> Preserve estimate and uncertainty together.</li>
+</ul>
+</div>
+</article>
+<article class="trap-card">
+<h3>True-number wrong-comparison trap</h3>
+<div class="trap">
+<span class="label">Mistake</span>18.4 cm was the treatment effect because treated plants averaged 18.4 cm.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="trap-7" data-show="Reveal why and repair" data-hide="Hide explanation">Reveal why and repair</button>
+<div class="reveal-panel" id="trap-7" hidden>
+<ul>
+<li>
+<strong>Failed field:</strong> The final group mean is mistaken for a change or between-group difference.</li>
+<li>
+<strong>Repair:</strong> The treatment-group mean was 18.4 cm; the between-group difference was 3.3 cm.</li>
+<li>
+<strong>Portable rule:</strong> Label every number before using it.</li>
+</ul>
+</div>
+</article>
+<article class="trap-card">
+<h3>Limit-means-false trap</h3>
+<div class="trap">
+<span class="label">Mistake</span>A six-week duration makes the observed six-week result false.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="trap-8" data-show="Reveal why and repair" data-hide="Hide explanation">Reveal why and repair</button>
+<div class="reveal-panel" id="trap-8" hidden>
+<ul>
+<li>
+<strong>Failed field:</strong> Duration limits later generalization but does not reverse the observation.</li>
+<li>
+<strong>Repair:</strong> The result describes six weeks; longer-term effects remain untested.</li>
+<li>
+<strong>Portable rule:</strong> A limitation narrows; it does not automatically negate.</li>
+</ul>
+</div>
+</article>
+</div>
+  </section>
+  <section class="section" id="recall">
+    <div class="section-heading">
+<div class="section-number">8</div>
+<div>
+<p class="eyebrow">Recall card</p>
+<h2>One-page research-text recall</h2>
+<p>Front: rule. Back: compact example and field map.</p>
+</div>
+</div>
+    <div class="recall-grid">
+<article class="anki-card">
+<div class="anki-front">Map five research fields.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-1" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-1" hidden>
+<div class="demo">The study asked whether heat affected germination, compared 24°C with 18°C, found earlier germination at 24°C, interpreted the pattern cautiously, and limited the claim to the tested seeds.</div>
+<div class="answer-like">
+<strong>Field map:</strong> question → design → result → interpretation → limit</div>
+</div>
+</article>
+<article class="anki-card">
+<div class="anki-front">Separate hypothesis, prediction, and result.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-2" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-2" hidden>
+<div class="demo">The hypothesis linked temperature with germination; the prediction expected earlier germination at 24°C; the result was 1.8 days sooner on average.</div>
+<div class="answer-like">
+<strong>Field map:</strong> proposed relation → expected pattern → measured pattern</div>
+</div>
+</article>
+<article class="anki-card">
+<div class="anki-front">Name explanatory, response, controlled, and confounding variables.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-3" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-3" hidden>
+<div class="demo">Material was compared, heat loss was measured, container size was held constant, and starting temperature became a confound when it differed by material.</div>
+<div class="answer-like">
+<strong>Field map:</strong> X | Y | held constant | alternative explanation</div>
+</div>
+</article>
+<article class="anki-card">
+<div class="anki-front">Match claim strength to study design.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-4" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-4" hidden>
+<div class="demo">Cycling was associated with lower reported stress among surveyed commuters, but self-selection prevented a clean causal claim.</div>
+<div class="answer-like">
+<strong>Field map:</strong> observation → association; causation not isolated</div>
+</div>
+</article>
+<article class="anki-card">
+<div class="anki-front">Separate result from interpretation.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-5" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-5" hidden>
+<div class="demo">Moths exposed to the odor located food 22% faster; researchers interpreted the difference as evidence of improved orientation.</div>
+<div class="answer-like">
+<strong>Field map:</strong> measured pattern | proposed meaning</div>
+</div>
+</article>
+<article class="anki-card">
+<div class="anki-front">Build a complete quantitative comparison.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-6" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-6" hidden>
+<div class="demo">After six weeks, treated plants were 3.3 cm taller on average than untreated plants under the same greenhouse conditions.</div>
+<div class="answer-like">
+<strong>Field map:</strong> groups + measure + direction + magnitude + unit + condition</div>
+</div>
+</article>
+<article class="anki-card">
+<div class="anki-front">Keep uncertainty with the estimate.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-7" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-7" hidden>
+<div class="demo">The sensor estimated 50.02 ± 0.05 g, preserving both the central estimate and its measurement range.</div>
+<div class="answer-like">
+<strong>Field map:</strong> estimate ± uncertainty</div>
+</div>
+</article>
+<article class="anki-card">
+<div class="anki-front">Use limitations to set a claim ceiling.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-8" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-8" hidden>
+<div class="demo">A six-week indoor study of juvenile trees supports a short-term indoor conclusion, not a multiyear outdoor claim about mature trees.</div>
+<div class="answer-like">
+<strong>Field map:</strong> population + condition + duration + modality</div>
+</div>
+</article>
+<article class="anki-card">
+<div class="anki-front">Lock Command of Evidence to the exact claim.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-9" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-9" hidden>
+<div class="demo">Direct support for a noise-detection claim must compare noise level with alarm-call detection in matched birds and conditions.</div>
+<div class="answer-like">
+<strong>Field map:</strong> claim + direction + variables + population + condition</div>
+</div>
+</article>
+<article class="anki-card">
+<div class="anki-front">Make the minimum safe inference.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-10" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-10" hidden>
+<div class="demo">Shaded surveyed ponds had cooler water and more larvae; the evidence supports association, not an isolated cause.</div>
+<div class="answer-like">
+<strong>Field map:</strong> facts + limit → cautious supported conclusion</div>
+</div>
+</article>
+<article class="anki-card">
+<div class="anki-front">State function as action plus target.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-11" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-11" hidden>
+<div class="demo">The one-season sentence qualifies the earlier evidence by narrowing its time scope.</div>
+<div class="answer-like">
+<strong>Field map:</strong> action + target + exact scope</div>
+</div>
+</article>
+<article class="anki-card">
+<div class="anki-front">Preserve vocabulary degree.</div>
+<button class="reveal-control" type="button" aria-expanded="false" aria-controls="recall-12" data-show="Reveal recall example" data-hide="Hide explanation">Reveal recall example</button>
+<div class="reveal-panel" id="recall-12" hidden>
+<div class="demo">Corroborates means independently supports; it does not mean proves beyond doubt.</div>
+<div class="answer-like">
+<strong>Field map:</strong> exact meaning + tone + degree + grammar</div>
+</div>
+</article>
+</div>
+  </section>
+  <p class="footer">Research and Science Texts · Approach Learning 1 · Released for Class 01 review · publication does not establish completion, checking, transfer, or mastery.</p>
+</main>
+<script>
+    document.querySelectorAll('.reveal-control').forEach((button) => {
+      const panel = document.getElementById(button.getAttribute('aria-controls'));
+      button.addEventListener('click', () => {
+        const open = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!open));
+        panel.hidden = open;
+        button.textContent = open ? button.dataset.show : button.dataset.hide;
+      });
+    });
+  </script>
+</body>
+</html>
