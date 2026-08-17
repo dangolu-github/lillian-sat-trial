@@ -5,7 +5,6 @@ Learner-facing materials published for Class 01 (2026-08-16):
 - Dated class summary
 - Updated Critical Reasoning: Inferences knowledge review
 - Form, Structure, and Sense + Transitions knowledge review
-- Research and Science Texts approach-learning handout
 - Assigned homework: 10 tense questions + 5 critical-reasoning questions
 
 Earlier trial-class materials remain available:
